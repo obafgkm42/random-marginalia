@@ -183,6 +183,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 .ro.down .n{color:var(--warn)}
 .ro .l{font-size:13.5px;line-height:1.65;color:var(--ink-2);display:block;margin-bottom:8px}
 .ro .s{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.05em;color:var(--muted);text-transform:uppercase}
+/* auto-fit 在 720px 欄寬下最多 3 欄：4 張會排成 3+1，孤兒格露出容器的 --line
+   底色。改為 2×2（與下方 print 規則一致）；5 張時讓末張補滿該列。 */
+@media (min-width:560px){
+  .readouts:has(.ro:nth-child(4):last-child){grid-template-columns:repeat(2,1fr)}
+  .readouts:has(.ro:nth-child(5):last-child) .ro:last-child{grid-column:span 2}
+}
 
 /* ---------- 提示框 ---------- */
 .note{
