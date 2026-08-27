@@ -64,7 +64,7 @@ cp -r posts/_template posts/2026-09-your-topic
 
 1. Edit `posts/2026-09-your-topic/index.html` — `<title>`, the meta tags, and the `.mast` header (kicker, title, standfirst, the three meta fields). Write the body using the components in the template; delete whatever you don't use. **Always keep the 資料來源 (sources) section.**
 2. Add an `<li>` at the **top** of `<ul class="postlist">` in `index.html`, copying the format of the existing entry.
-3. Optional: `python3 tools/build_pdf.py posts/2026-09-your-topic/index.html`
+3. Optional: `uv run tools/build_pdf.py posts/2026-09-your-topic/index.html`
 4. Add a row to the Articles table above.
 5. Commit and push — Pages redeploys automatically.
 
@@ -88,10 +88,19 @@ Every component below has a worked example in the template.
 
 ## PDFs
 
+Requires [uv](https://docs.astral.sh/uv/). Chromium has to be fetched once:
+
 ```bash
-pip install playwright && playwright install chromium
-python3 tools/build_pdf.py posts/<slug>/index.html
+uv run --with playwright==1.62.0 playwright install chromium
 ```
+
+Then, per article:
+
+```bash
+uv run tools/build_pdf.py posts/<slug>/index.html
+```
+
+`tools/build_pdf.py` declares its dependency as [PEP 723](https://peps.python.org/pep-0723/) inline metadata and is locked in `tools/build_pdf.py.lock`, so uv builds the environment on demand — there is no venv, no `requirements.txt`, and nothing to install into your system Python. `.python-version` pins the interpreter for this repo.
 
 The print layout lives in the `@media print` block of `assets/style.css`, so <kbd>Ctrl</kbd>+<kbd>P</kbd> in a browser produces the same pages. The script only adds the running footer and page numbers.
 

@@ -1,16 +1,21 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["playwright==1.62.0"]
+# ///
 """
 把一篇文章的 HTML 轉成 A4 PDF。
 
 用法:
-    python3 tools/build_pdf.py posts/2026-08-ai-coding-quality-assurance/index.html
-    python3 tools/build_pdf.py posts/<slug>/index.html --out custom-name.pdf
+    uv run tools/build_pdf.py posts/2026-08-ai-coding-quality-assurance/index.html
+    uv run tools/build_pdf.py posts/<slug>/index.html --out custom-name.pdf
+
+依賴宣告在上面的 PEP 723 區塊，uv 會自行建立隔離環境，不需要 venv 或
+requirements.txt。唯一的手動步驟是下載 Chromium（uv 管不到瀏覽器二進位）:
+    uv run --with playwright==1.62.0 playwright install chromium
 
 排版規則來自 assets/style.css 的 @media print 區塊——瀏覽器 Ctrl+P 會得到
 一樣的結果，這支腳本額外做的只有頁首頁尾與頁碼。
-
-需求:
-    pip install playwright && playwright install chromium
 
 中文字型: 優先使用系統上的 Noto Sans/Serif TC 或 Noto CJK。若都沒有，
 先安裝 (Debian/Ubuntu): sudo apt install fonts-noto-cjk
@@ -23,7 +28,7 @@ import sys
 try:
     from playwright.sync_api import sync_playwright
 except ImportError:
-    sys.exit("需要 playwright：pip install playwright && playwright install chromium")
+    sys.exit("請用 uv 執行：uv run tools/build_pdf.py <html>（見檔頭說明）")
 
 SITE_NAME = "Engineering Marginalia"
 
