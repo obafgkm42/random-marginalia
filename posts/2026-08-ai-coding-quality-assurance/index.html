@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 寫的程式碼，工程師到底怎麼驗收？ · Engineering Marginalia</title>
+<meta name="description" content="2025–2026 年 AI coding 品質驗收實務調查：現況數據、個人層檢查流程、團隊層 quality gate、工具鏈地圖與落地路線圖。">
+<meta name="author" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 寫的程式碼，工程師到底怎麼驗收？">
+<meta property="og:description" content="2025–2026 年 AI coding 品質驗收實務調查。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+<nav class="sitenav">
+  <a class="brand" href="../../">Engineering Marginalia</a>
+  <span class="links">
+    <a href="../../">← 所有文章</a>
+    <a href="ai-coding-quality-assurance.pdf">PDF 版本</a>
+  </span>
+</nav>
+
+
+<header class="mast">
+  <p class="kicker">Engineering Research · 2026.08</p>
+  <h1>AI 寫的程式碼，工程師到底怎麼驗收？</h1>
+  <p class="dek">一份關於 <span class="en">AI coding</span> 品質保證實務的調查報告：現況數據、個人層的檢查流程、團隊層的 <span class="en">quality gate</span> 設計、工具鏈地圖，以及可落地的 30/60/90 天路線圖。</p>
+  <div class="meta">
+    <span><b>主題</b> AI-assisted code quality assurance</span>
+    <span><b>資料期間</b> 2025.01 – 2026.08</span>
+    <span><b>語言</b> 繁體中文 · 英文術語保留原文</span>
+  </div>
+</header>
+
+<div class="col">
+
+<!-- ============ 摘要 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">00</span><h2>執行摘要</h2></div>
+
+  <p class="lead">2026 年的軟體工程現場出現一個結構性的位移：<strong>瓶頸已經從「寫程式」移到「驗收程式」</strong>。AI 產出的速度遠超過人類審查的速度，於是所有品質保證的重量，都壓在 <span class="en">code review</span> 與 <span class="en">CI/CD</span> 這道閘門上。</p>
+
+  <p>調查歸納出五個核心發現：</p>
+
+  <ul>
+    <li><strong>採用率已飽和，信任度沒有跟上。</strong>84–90% 的開發者在用 AI 寫程式，但只有 3% 「高度信任」它的正確性，46% 明確不信任。</li>
+    <li><strong>「幾乎對，但不完全對」是頭號痛點。</strong>66% 的開發者把它列為最大挫折來源——這正是最難靠測試抓出來、只能靠人讀懂的那一類錯誤。</li>
+    <li><strong>吞吐量真的上升，穩定性真的下降。</strong>多份 2026 年遙測資料顯示 <span class="en">throughput</span> 提升的同時，<span class="en">code churn</span>、<span class="en">incident rate</span>、<span class="en">review time</span> 全面惡化。</li>
+    <li><strong>驗收正在往左右兩端分裂。</strong>左端是 <span class="en">spec-driven</span> 的事前約束（規格、context 檔、小批次），右端是自動化閘門（<span class="en">SAST / SCA / secrets / test gate</span>）。中間那段「人工逐行讀」的容量已經是最稀缺資源。</li>
+    <li><strong>有效的團隊不是「多 review」，而是「改變被 review 的東西」。</strong>限制 <span class="en">PR size</span>、要求 AI 產出標註、把可自動判定的規則全部前移，讓人只讀機器讀不出來的部分。</li>
+  </ul>
+
+  <div class="note">
+    <h4>本報告的核心主張</h4>
+    <p>AI 沒有改變品質保證的原理，它改變的是<strong>經濟結構</strong>：產出成本趨近於零，驗證成本沒有變。因此所有工程實務的調整方向只有一個——<strong>降低單位驗證成本，並拒絕接受無法驗證的產出</strong>。</p>
+  </div>
+</section>
+
+<!-- ============ 1 現況數據 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>現況：採用率飽和、信任落差擴大</h2></div>
+
+  <p>先確立事實基礎。以下數據來自 2025–2026 年的大型開發者調查與工程遙測資料。</p>
+
+  <h4>採用與信任</h4>
+  <div class="readouts">
+    <div class="ro">
+      <span class="n">84%</span>
+      <span class="l">開發者正在使用或計畫使用 AI 開發工具（前一年 76%）</span>
+      <span class="s">Stack Overflow 2025</span>
+    </div>
+    <div class="ro">
+      <span class="n">3%</span>
+      <span class="l">「高度信任」AI 產出正確性的比例；46% 明確不信任</span>
+      <span class="s">Stack Overflow 2025</span>
+    </div>
+    <div class="ro">
+      <span class="n">66%</span>
+      <span class="l">把「幾乎對、但不完全對」列為最大挫折來源</span>
+      <span class="s">Stack Overflow 2025</span>
+    </div>
+    <div class="ro">
+      <span class="n">45%</span>
+      <span class="l">認為 debug AI 產出的程式碼比自己寫還花時間</span>
+      <span class="s">Stack Overflow 2025</span>
+    </div>
+  </div>
+
+  <p>這組數字本身就是報告的起點：<strong>使用率跟信任度已經完全脫鉤</strong>。開發者不是因為相信 AI 才用它，而是在「不太信、但還是要用」的狀態下工作——這正是驗收流程必須存在的理由。</p>
+
+  <h4>速度的幻覺</h4>
+  <p>METR 在 2025 年做了一項少見的<span class="en">randomized controlled trial</span>：16 位資深開源開發者、246 個他們自己 repo 裡的真實 issue，隨機指派「可用 AI」或「不可用 AI」。</p>
+
+  <div class="note warn">
+    <h4>METR RCT · 2025</h4>
+    <p>可用 AI 的組別完成時間<strong>慢了 19%</strong>。事前他們預期會快 24%；<strong>即使實際變慢，事後他們仍然相信 AI 讓自己快了 20%</strong>。</p>
+    <p style="font-size:14px;color:var(--muted)">研究者本人強調樣本限於「大型成熟 repo 的資深維護者」，不可外推到所有情境。但這個「主觀感受與客觀量測背離」的現象，對驗收設計有直接意涵：<strong>不能用開發者的自我回報來評估 AI 的品質效果</strong>。</p>
+  </div>
+
+  <h4>2026 年遙測：吞吐量上升、穩定性下降</h4>
+  <p>兩份基於實際 <span class="en">git / PR</span> 資料的 2026 年報告，指向同一個方向。</p>
+
+  <div class="readouts">
+    <div class="ro up">
+      <span class="n">+861%</span>
+      <span class="l">高 AI 採用期間的 <span class="en">code churn</span>（短期內被改寫掉的程式碼）</span>
+      <span class="s">Faros AI 2026 · 22,000 devs</span>
+    </div>
+    <div class="ro up">
+      <span class="n">+243%</span>
+      <span class="l"><span class="en">incidents-to-PR ratio</span>：每個合併變更引發生產事故的機率</span>
+      <span class="s">Faros AI 2026</span>
+    </div>
+    <div class="ro up">
+      <span class="n">+442%</span>
+      <span class="l"><span class="en">code review</span> 中位時長增幅——資深工程師承接了品保負擔</span>
+      <span class="s">Faros AI 2026</span>
+    </div>
+    <div class="ro up">
+      <span class="n">+31%</span>
+      <span class="l">更多 PR <strong>未經 review 直接合併</strong>——閘門在量能壓力下被繞過</span>
+      <span class="s">Faros AI 2026</span>
+    </div>
+  </div>
+
+  <p>LinearB 分析 810 萬個 PR、4,800 個團隊後的結果同樣鮮明：</p>
+
+  <div class="tw">
+  <table>
+    <caption>資料來源：LinearB 2026 Engineering Benchmarks（8.1M PRs / 4,800 teams / 42 countries）。「AI 參與」由工具遙測判定，非自我申報。</caption>
+    <thead><tr><th>指標</th><th>人類撰寫</th><th>AI 參與</th><th>意涵</th></tr></thead>
+    <tbody>
+      <tr><td>30 天內合併率 <span class="en">merge rate</span></td><td>84.5%</td><td>32.7%</td><td>近三分之二的 AI PR 沒有走完流程</td></tr>
+      <tr><td>等待首次 review <span class="en">pickup time</span></td><td>約 200 分鐘</td><td>約 1,000 分鐘</td><td>審查者迴避大而不熟悉的變更</td></tr>
+      <tr><td>PR 規模（P75）</td><td>157 行</td><td>400+ 行</td><td>超出人類單次審查的認知上限</td></tr>
+      <tr><td>重構佔比 <span class="en">refactor rate</span></td><td>37%</td><td>趨近於 0</td><td>AI 傾向新增路徑，而非改善既有程式</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4>可維護性的長期趨勢</h4>
+  <p>GitClear 分析 2023–2026 年間 6.23 億筆程式碼變更，觀察到結構性的劣化訊號：<strong>區塊重複（block duplication）成長 81%</strong>；<strong>被搬移的程式碼（moved code，重構的代理指標）從 2022 年的 21% 掉到 2026 年的 3.8%</strong>；<span class="en">copy/paste</span> 佔比從 9.4% 升到 15.7%；掩蓋錯誤的寫法（<span class="en">error-masking constructs</span>，如空的 catch）增加 47%。</p>
+
+  <p>換句話說：<strong>開發者現在複製的機率是重構的約 5 倍</strong>，而 2022 年是相反的。這不是 AI 的技術缺陷，而是驗收流程的缺口——複製一段能動的程式碼，比說服自己去重構要容易得多。</p>
+
+  <h4>安全面</h4>
+  <div class="readouts">
+    <div class="ro up">
+      <span class="n">45%</span>
+      <span class="l">AI 完成的編碼任務引入 <span class="en">OWASP Top 10</span> 等級的安全缺陷</span>
+      <span class="s">Veracode 2025 · 100+ models</span>
+    </div>
+    <div class="ro up">
+      <span class="n">86%</span>
+      <span class="l"><span class="en">XSS (CWE-80)</span> 情境的防禦失敗率；<span class="en">log injection</span> 為 88%</span>
+      <span class="s">Veracode 2025</span>
+    </div>
+    <div class="ro up">
+      <span class="n">19.7%</span>
+      <span class="l">程式碼樣本中<strong>至少含一個不存在的套件名</strong>（package hallucination）</span>
+      <span class="s">Slopsquatting research</span>
+    </div>
+    <div class="ro up">
+      <span class="n">43%</span>
+      <span class="l">同一個幻覺套件名在重複提問十次時<strong>每次都出現</strong>——可被攻擊者預先註冊</span>
+      <span class="s">Slopsquatting research</span>
+    </div>
+  </div>
+
+  <p>Veracode 特別指出：<strong>模型變大並沒有讓安全性變好</strong>，語法正確率持續提升的同時，安全表現多年來幾乎沒有變化。這意味著安全驗收不能寄望於「換個更強的模型」，只能靠流程。</p>
+
+  <div class="note crit">
+    <h4>資料解讀的注意事項</h4>
+    <p>上述遙測資料多來自工程效能廠商（Faros、LinearB、GitClear），有商業立場，且<strong>相關不等於因果</strong>——高 AI 採用的團隊也可能同時在承受其他壓力。METR 的 RCT 因果性最強但樣本僅 16 人。建議把這些數字當作<strong>風險方向的指標</strong>，而不是精確的效果量。</p>
+  </div>
+</section>
+
+<!-- ============ 2 心智模型 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>心智模型：從 author 變成 verifier</h2></div>
+
+  <p>所有有效的驗收實務，都建立在同一個前提上：</p>
+
+  <div class="note">
+    <p style="font-size:17px;font-family:var(--f-display);font-weight:600;line-height:1.8;margin:0">
+      誰按下 merge，誰就對那段程式碼負全責。<br>
+      <span style="font-size:14px;font-family:var(--f-body);font-weight:400;color:var(--muted)">程式碼是誰寫的，在事故檢討會上不構成任何辯護。</span>
+    </p>
+  </div>
+
+  <h3>兩個必須避開的認知陷阱</h3>
+
+  <p><strong>1. 自動化偏誤 <span class="en">automation bias</span>。</strong>Thoughtworks 在 2025 年 11 月的 <span class="en">Technology Radar</span> 把「<span class="en">Complacency with AI-generated code</span>」放進 <span class="en">Hold</span> 環：開發者在幾次好經驗之後會降低審查強度，而 AI agent 產生的變更集又越來越大，直接超出人的審查量能。</p>
+
+  <p><strong>2. 產出的流暢度不等於正確性。</strong>AI 的程式碼看起來永遠是「有自信的、格式正確的、命名合理的」。人類審查者對這些訊號的直覺——「寫得這麼整齊應該沒問題」——在 AI 產出上完全失效。</p>
+
+  <h3>先決定信任邊界 <span class="en">trust boundary</span></h3>
+  <p>不是所有程式碼都需要同樣強度的驗收。實務上先分級，才不會把有限的審查力氣平均分配掉：</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>層級</th><th>典型情境</th><th>驗收強度</th></tr></thead>
+    <tbody>
+      <tr><td class="gate">T0 拋棄式</td><td>一次性腳本、探索性原型、資料清理</td><td>能跑就好。<span class="en">vibe coding</span> 在這層完全合理</td></tr>
+      <tr><td class="gate">T1 內部工具</td><td>內部儀表板、CI 腳本、開發工具</td><td>自動化閘門 + 快速人工掃視</td></tr>
+      <tr><td class="gate">T2 生產程式</td><td>對外服務、共用函式庫</td><td>完整流程：逐行 review + 測試 + 安全掃描</td></tr>
+      <tr><td class="gate">T3 高風險</td><td>認證授權、金流、個資、加密、遷移腳本</td><td>視為「不可信輸入」：雙人 review、威脅建模、必要時人工重寫</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>最常見的組織性錯誤，是<strong>讓 T0 的工作習慣滲透到 T2/T3</strong>。明確寫下分級並讓它出現在 PR 模板裡，比任何口頭提醒都有效。</p>
+</section>
+
+<!-- ============ 3 個人層 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>個人層：日常怎麼檢查</h2></div>
+
+  <p>個人層的驗收分成三段：<strong>事前約束</strong>、<strong>閱讀 diff</strong>、<strong>執行驗證</strong>。多數品質問題其實是在第一段就決定的。</p>
+
+  <h3>3.1 事前約束：讓產出一開始就可驗收</h3>
+
+  <ul>
+    <li><strong>先寫規格，再讓 AI 動手（<span class="en">spec-driven development</span>）。</strong>2026 年浮現的主流做法：先產出一份可審閱的規格／計畫（<span class="en">plan mode</span>、GitHub <span class="en">Spec Kit</span> 之類的流程），人審過規格再進入實作。<strong>審一頁規格的成本，遠低於審四百行 diff。</strong></li>
+    <li><strong>把專案慣例寫成 context 檔。</strong><span class="en">AGENTS.md</span> / <span class="en">CLAUDE.md</span> / <span class="en">.cursorrules</span> 之類的檔案，用來固定架構慣例、命名規則、禁用的函式庫、測試方式。這是「<span class="en">context engineering</span>」——把重複糾正的內容一次性外部化。</li>
+    <li><strong>強制小批次 <span class="en">small batches</span>。</strong>DORA 2025 把「小批次作業」列為放大 AI 效益的關鍵能力之一。實務規則：<strong>一個 PR 對應一個可獨立描述的意圖，並設定行數上限（常見 200–400 行）</strong>。要求 AI 拆成多次提交，而不是一次生成完。</li>
+    <li><strong>先問「這段該不該讓 AI 寫」。</strong>認證、權限判斷、金流、加密、資料遷移——這幾類的錯誤成本遠高於節省的時間。</li>
+  </ul>
+
+  <h3>3.2 閱讀 diff：五個必查項目</h3>
+
+  <p>關鍵原則：<strong>讀 diff，不要讀 AI 對自己的說明</strong>。模型的摘要傾向描述「它打算做什麼」，而不是「它實際改了什麼」。</p>
+
+  <ul class="check">
+    <li><span class="box"></span><span><b>① 這些 API 和套件真的存在嗎？</b><span class="d">對照官方文件與 registry 檢查每一個新引入的相依套件——這是 <span class="en">package hallucination</span> 與 <span class="en">slopsquatting</span> 的唯一防線。實務做法：鎖定 <span class="en">lockfile</span>、對 AI agent 的套件安裝設 <span class="en">allowlist</span>、任何新相依都要人工核可。</span></span></li>
+    <li><span class="box"></span><span><b>② 邊界條件與錯誤處理對嗎？</b><span class="d">空集合、null、超時、併發、重試、部分失敗。特別留意<strong>掩蓋錯誤的寫法</strong>（空的 catch、吞掉例外、萬用 try 包整段）——這類寫法在 AI 產出中增加了 47%，而且它們會讓錯誤延後到生產環境才爆。</span></span></li>
+    <li><span class="box"></span><span><b>③ 它是不是重造了已經存在的東西？</b><span class="d">AI 看不到你整個 codebase 的全貌，最典型的失敗是複製一份既有工具函式的變體。搜尋關鍵字、確認有沒有現成實作，這是對抗 <span class="en">duplication</span> 與 <span class="en">maintainability gap</span> 最直接的動作。</span></span></li>
+    <li><span class="box"></span><span><b>④ 安全面站得住嗎？</b><span class="d">輸入驗證、輸出跳脫（XSS）、SQL 參數化、authn/authz 檢查是否被略過、secrets 有沒有寫死、日誌有沒有記錄敏感資料、CORS 與權限預設值。Veracode 的資料顯示這是 AI 產出最系統性的弱點。</span></span></li>
+    <li><span class="box"></span><span><b>⑤ 它符合這個專案的做法嗎？</b><span class="d"><span class="en">context blindness</span>：分層架構被繞過、錯誤處理風格不一致、命名慣例不符、該用既有 client 卻自己開了新的 HTTP 呼叫。這類問題所有靜態工具都抓不到，是人工 review 最不可取代的部分。</span></span></li>
+  </ul>
+
+  <div class="note">
+    <h4>一個有效的技巧：反向解釋</h4>
+    <p>對 diff 中你不完全確定的部分，<strong>要求自己（而不是 AI）用一句話說出它為什麼正確</strong>。說不出來，就是還沒 review 完。這個動作直接對抗「幾乎對、但不完全對」——那 66% 的挫折來源，本質上是<strong>看起來合理但邏輯有洞</strong>的程式碼。</p>
+  </div>
+
+  <h3>3.3 執行驗證：測試怎麼做才算數</h3>
+
+  <ul>
+    <li><strong>一定要真的跑起來。</strong>看起來對、也通過型別檢查的程式碼，仍然可能在第一次執行就失敗。手動測邊界情境，不要只信 happy path。</li>
+    <li><strong>不要讓同一次對話同時產生實作與測試。</strong>模型會寫出<strong>迎合實作的測試</strong>（<span class="en">tautological test</span>）——實作有 bug，測試就跟著 bug 一起通過。做法：測試先寫（<span class="en">TDD</span>），或由人定義測試案例、AI 只負責填實作。</li>
+    <li><strong>用 <span class="en">mutation testing</span> 檢驗測試本身。</strong>覆蓋率只證明「這行被執行過」，不證明「這行錯了會被抓到」。在 AI 大量產生測試的環境下，<span class="en">coverage</span> 已經是很弱的訊號，抽樣做突變測試才知道測試有沒有實質效力。</li>
+    <li><strong><span class="en">property-based testing</span> 對 AI 產出特別有效。</strong>AI 擅長讓具名的測試案例通過，卻常在隨機輸入下崩潰。定義不變量（invariant）讓工具去找反例。</li>
+    <li><strong>對照既有行為。</strong>重構類的變更，用舊實作與新實作跑同一批輸入比對輸出（<span class="en">differential testing</span>），比讀 diff 可靠得多。</li>
+  </ul>
+</section>
+
+<!-- ============ 4 團隊層 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>團隊層：把驗收固化成 quality gate</h2></div>
+
+  <p>個人紀律無法規模化，而且會在交付壓力下第一個崩潰（Faros 觀察到的「未經 review 合併增加 31%」就是這個現象）。團隊層要做的是<strong>把所有可自動判定的檢查前移，讓人只讀機器讀不出來的東西</strong>。</p>
+
+  <h3>4.1 六道閘門</h3>
+
+  <div class="ladder">
+    <div class="rung"><span class="g">GATE 0</span><span class="t">本機／提交前 <em>format · lint · type check · secret scan · unit test</em></span></div>
+    <div class="rung"><span class="g">GATE 1</span><span class="t">靜態分析 <em>SAST · 複雜度 · 重複偵測 · 依賴新鮮度</em></span></div>
+    <div class="rung"><span class="g">GATE 2</span><span class="t">測試閘門 <em>new-code coverage 門檻 · 抽樣 mutation testing · 契約測試</em></span></div>
+    <div class="rung"><span class="g">GATE 3</span><span class="t">供應鏈與安全 <em>SCA · lockfile 驗證 · 新相依人工核可 · SBOM · IaC scan</em></span></div>
+    <div class="rung"><span class="g">GATE 4</span><span class="t">人工審查 <em>架構意圖 · 業務邏輯 · 高風險路徑 · AI review bot 作為第一輪過濾</em></span></div>
+    <div class="rung"><span class="g">GATE 5</span><span class="t">漸進式交付 <em>feature flag · canary · 自動 rollback · 錯誤率監控</em></span></div>
+  </div>
+
+  <p style="font-size:13.5px;color:var(--muted)">Gate 0–3 應該全自動且具阻斷力（<span class="en">blocking</span>）；Gate 4 是唯一稀缺的人力資源，必須被前面幾道閘門保護；Gate 5 承認一件事實——<strong>總會有東西漏過去，所以要能快速偵測並回滾</strong>。</p>
+
+  <h3>4.2 針對 AI 產出的額外規則</h3>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>政策</th><th>具體做法</th><th>解決的問題</th></tr></thead>
+    <tbody>
+      <tr><td><strong>產出標註</strong><br><span class="en">provenance</span></td><td>PR 模板加上「AI 參與程度」欄位（無／輔助／主要／agent 全自動）；commit 使用 trailer 標記</td><td>事故回溯、風險分層、指標統計的前提</td></tr>
+      <tr><td><strong>PR 規模上限</strong></td><td>超過門檻（如 400 行）自動標記並要求拆分</td><td>AI PR 是人類 PR 的 2.5 倍大，直接壓垮審查量能</td></tr>
+      <tr><td><strong>禁止自動合併</strong></td><td>agent 產出的 PR 一律需要人類核可，不得使用 auto-merge</td><td>對抗「未 review 合併增加 31%」</td></tr>
+      <tr><td><strong>相依套件白名單</strong></td><td>新套件需人工核可；CI 驗證套件存在時間與下載量</td><td>package hallucination / slopsquatting</td></tr>
+      <tr><td><strong>新程式碼標準</strong><br><span class="en">clean as you code</span></td><td>對「本次變更的程式碼」設嚴格門檻，不追究舊債</td><td>讓門檻可執行，避免全域標準永遠達不到</td></tr>
+      <tr><td><strong>高風險路徑加簽</strong></td><td>authn/authz、金流、遷移腳本要求第二位審查者（CODEOWNERS）</td><td>把有限的資深人力放在事故成本最高處</td></tr>
+      <tr><td><strong>review SLA</strong></td><td>設定首次審查回應時限，並監測 pickup time</td><td>AI PR 等待首評時間是人類的 5 倍</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note warn">
+    <h4>一個關鍵的取捨</h4>
+    <p>DORA 2025 的核心結論是「<strong>AI 是放大器</strong>」——它放大組織既有的優勢，也放大既有的弱點。但 Faros 2026 的遙測提出了一個更冷的觀察：<strong>DevOps 成熟度高的組織，在高 AI 採用下的下游劣化幅度與低成熟度組織相當</strong>。兩者的差異可能在於「調查自評」與「客觀遙測」的落差。合理的解讀是：<strong>既有的良好實務是必要條件，但不是充分條件</strong>；針對 AI 產出特性的新規則（PR 規模、標註、相依控管）必須另外加上去。</p>
+  </div>
+</section>
+
+<!-- ============ 5 工具鏈 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>工具鏈地圖</h2></div>
+
+  <p>沒有單一工具能覆蓋 AI 產出的失效模式，實務上是分層疊加。以下按閘門分層列出代表性工具類別（<strong>為說明用途，非背書；請依自身技術棧選型</strong>）。</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>層</th><th>目的</th><th>代表工具類別</th><th>對 AI 產出的作用</th></tr></thead>
+    <tbody>
+      <tr><td class="gate">Secrets</td><td>憑證外洩偵測</td><td>gitleaks · trufflehog · GitHub Secret Scanning</td><td>AI 常在範例中寫死 key</td></tr>
+      <tr><td class="gate">SAST</td><td>已知漏洞模式</td><td>Semgrep · CodeQL · SonarQube</td><td>抓 OWASP Top 10 類缺陷（Veracode 指出的 45% 主場）</td></tr>
+      <tr><td class="gate">SCA</td><td>相依套件風險</td><td>Snyk · Dependabot · OSV Scanner · FOSSA</td><td>幻覺套件、惡意套件、授權風險</td></tr>
+      <tr><td class="gate">IaC</td><td>基礎設施設定</td><td>Checkov · tfsec · Trivy</td><td>AI 生成的 Terraform / K8s 常有寬鬆預設值</td></tr>
+      <tr><td class="gate">品質</td><td>重複、複雜度、覆蓋率</td><td>SonarQube（含 AI Code Assurance 類功能）· jscpd</td><td>直接對應 duplication +81% 的趨勢</td></tr>
+      <tr><td class="gate">測試強度</td><td>驗證測試本身</td><td>Stryker · PIT（mutation）· Hypothesis · fast-check（property-based）</td><td>破除 AI 生成測試的虛假覆蓋率</td></tr>
+      <tr><td class="gate">AI review</td><td>語意層審查</td><td>CodeRabbit · Greptile · Cursor Bugbot · GitHub Copilot code review · Qodo</td><td>作為第一輪過濾，處理 logic bug 與慣例偏離</td></tr>
+      <tr><td class="gate">交付安全</td><td>爆炸半徑控制</td><td>feature flag 平台 · canary / progressive delivery · 錯誤率監控</td><td>應對「漏網之魚必然存在」</td></tr>
+      <tr><td class="gate">工程遙測</td><td>量測驗收成效</td><td>DORA 指標平台 · PR 分析工具</td><td>提供 churn / incident / review 時間的客觀基線</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note">
+    <h4>用 AI 審查 AI 的正確定位</h4>
+    <p><span class="en">AI code review</span> 工具能有效處理「機械性」的問題，並在大 PR 上提供第一輪過濾——但它<strong>不能取代 Gate 4 的人類判斷</strong>。理由很直接：判斷「這個變更是否符合我們的業務意圖與架構決策」需要模型沒有的組織脈絡，而且用同類模型審查同類模型，錯誤模式會相關（<span class="en">correlated failure</span>）。合理定位：<strong>降低人類審查者的負載，而不是取代簽核責任</strong>。</p>
+  </div>
+</section>
+
+<!-- ============ 6 指標 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>指標：怎麼知道驗收有效</h2></div>
+
+  <h4>不要用的指標</h4>
+  <ul>
+    <li><strong><span class="en">acceptance rate</span>（AI 建議採納率）</strong>——只衡量「按了 Tab」，與品質無關。</li>
+    <li><strong>程式碼行數／PR 數量</strong>——在 AI 環境下這些數字必然上升，且與價值脫鉤。</li>
+    <li><strong>開發者自評的生產力提升</strong>——METR 已經證明這個訊號會系統性地偏誤。</li>
+    <li><strong>整體測試覆蓋率</strong>——AI 能輕易把覆蓋率拉高而不增加任何實質保護。</li>
+  </ul>
+
+  <h4>應該追蹤的指標</h4>
+  <div class="tw">
+  <table>
+    <thead><tr><th>指標</th><th>觀察什麼</th><th>警訊</th></tr></thead>
+    <tbody>
+      <tr><td><span class="en">change failure rate</span></td><td>變更導致事故或需回滾的比例</td><td>與吞吐量同步上升</td></tr>
+      <tr><td><span class="en">incidents per merged PR</span></td><td>單位變更的事故機率（比事故總數更誠實）</td><td>任何持續上升</td></tr>
+      <tr><td><span class="en">two-week code churn</span></td><td>兩週內被改寫掉的新程式碼比例</td><td>上升代表「先合併再說」</td></tr>
+      <tr><td><span class="en">time to first review</span></td><td>PR 等待首次審查的時間</td><td>AI PR 顯著長於人類 PR</td></tr>
+      <tr><td><span class="en">PRs merged without review</span></td><td>繞過閘門的比例</td><td>任何非零值都需要解釋</td></tr>
+      <tr><td><span class="en">escaped defect rate</span></td><td>漏到生產環境的缺陷密度</td><td>驗收有效性的最終裁判</td></tr>
+      <tr><td><span class="en">mutation score</span>（抽樣）</td><td>測試實際偵錯能力</td><td>覆蓋率上升但突變分數下降</td></tr>
+      <tr><td>重複率與重構比例</td><td>可維護性趨勢</td><td>duplication 上升 + moved code 下降</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>把這些指標<strong>依「AI 參與程度」切分</strong>（這正是產出標註政策的價值所在），才能回答真正該問的問題：<em>我們的驗收流程，對 AI 產出是否和對人類產出一樣有效？</em></p>
+</section>
+
+<!-- ============ 7 落地 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">07</span><h2>落地路線圖</h2></div>
+
+  <p>按投入成本與回報排序，不需要一次到位。</p>
+
+  <h3>第 1–30 天 · 止血</h3>
+  <ul>
+    <li>公布一頁 <span class="en">AI usage policy</span>：哪些場景可以用、哪些路徑（authn、金流、加密、遷移）需要額外審查、merge 責任歸屬。</li>
+    <li>開啟阻斷式的 <span class="en">secret scanning</span> 與 <span class="en">SAST</span>，先只擋 critical，避免一次噪音過大導致全員繞過。</li>
+    <li>PR 模板加入「AI 參與程度」欄位，並設定 PR 行數上限的自動提醒。</li>
+    <li>關閉 agent 產出 PR 的 <span class="en">auto-merge</span>。</li>
+  </ul>
+
+  <h3>第 31–60 天 · 建立基線與槓桿</h3>
+  <ul>
+    <li>導入 <span class="en">clean as you code</span>：對新增／修改的程式碼設覆蓋率與品質門檻。</li>
+    <li>導入一套 AI review bot 作為第一輪過濾，明確定位為「減負」而非「簽核」。</li>
+    <li>建立 <span class="en">AGENTS.md</span> / 規則庫，把重複糾正的架構慣例外部化。</li>
+    <li>建立指標基線：change failure rate、incidents per PR、churn、time to first review，並依 AI 參與程度切分。</li>
+    <li>新增相依套件納入人工核可流程，鎖定 lockfile。</li>
+  </ul>
+
+  <h3>第 61–90 天 · 結構性改變</h3>
+  <ul>
+    <li>推行 <span class="en">spec-driven</span> 流程：先審規格、再產實作，把審查成本前移。</li>
+    <li>對關鍵模組導入抽樣 <span class="en">mutation testing</span> 與 <span class="en">property-based testing</span>。</li>
+    <li>建立 <span class="en">progressive delivery</span>（feature flag + canary + 自動回滾），承認漏網之魚必然存在。</li>
+    <li>把「這個事故的程式碼是怎麼通過驗收的」列為事故檢討的固定問題，讓閘門持續演化。</li>
+  </ul>
+
+  <h3>常見反模式</h3>
+  <ul>
+    <li><strong>只加 AI review bot，不改 PR 規模。</strong>大 PR 的問題是人的認知上限，不是缺乏意見。</li>
+    <li><strong>用覆蓋率當唯一測試指標。</strong>在 AI 環境下這個指標最容易被無意義地滿足。</li>
+    <li><strong>把所有規則一次設成阻斷式。</strong>噪音過大會導致團隊系統性地繞過閘門，比沒有閘門更糟。</li>
+    <li><strong>依據吞吐量提升而裁減人力。</strong>下游的驗證、修復、維護工作並沒有消失，只是延後出現。</li>
+    <li><strong>用自評問卷評估 AI 成效。</strong>METR 的結果顯示這個訊號不可靠。</li>
+  </ul>
+</section>
+
+<!-- ============ 附錄 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">08</span><h2>附錄：合併前檢查清單</h2></div>
+
+  <p style="font-size:14px;color:var(--muted)">適用於 T2（生產程式）以上。可直接貼進 PR 模板。</p>
+
+  <ul class="check">
+    <li><span class="box"></span><span><b>我讀完了整個 diff，不是只讀了摘要</b></span></li>
+    <li><span class="box"></span><span><b>每個新引入的套件與 API 都經過查證確實存在</b></span></li>
+    <li><span class="box"></span><span><b>我能用一句話說明每個非顯而易見的決定為什麼正確</b></span></li>
+    <li><span class="box"></span><span><b>邊界條件已檢查：空值、超時、併發、部分失敗</b></span></li>
+    <li><span class="box"></span><span><b>沒有掩蓋錯誤的寫法（空 catch、吞例外、萬用 try）</b></span></li>
+    <li><span class="box"></span><span><b>沒有重造 codebase 裡已存在的功能</b></span></li>
+    <li><span class="box"></span><span><b>輸入驗證、輸出跳脫、authn/authz 檢查都在位</b></span></li>
+    <li><span class="box"></span><span><b>沒有寫死的 secrets，日誌沒有記錄敏感資料</b></span></li>
+    <li><span class="box"></span><span><b>符合本專案的架構與命名慣例</b></span></li>
+    <li><span class="box"></span><span><b>我實際執行過，並手動測過至少一個邊界情境</b></span></li>
+    <li><span class="box"></span><span><b>測試會因為實作有 bug 而失敗（不是迎合實作的測試）</b></span></li>
+    <li><span class="box"></span><span><b>這個 PR 的規模在可審查範圍內</b></span></li>
+    <li><span class="box"></span><span><b>我願意為這段程式碼在生產環境的行為負責</b></span></li>
+  </ul>
+</section>
+
+<!-- ============ 來源 ============ -->
+<section>
+  <div class="sec-head"><span class="sec-num">09</span><h2>資料來源</h2></div>
+  <ul class="src">
+    <li><span class="tag">Survey</span><a href="https://survey.stackoverflow.co/2025/ai">Stack Overflow 2025 Developer Survey — AI section</a>：採用率 84%、高度信任 3%、不信任 46%、「almost right」66%、debug 更費時 45.2%。</li>
+    <li><span class="tag">Survey</span><a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">Google Cloud / DORA — 2025 State of AI-assisted Software Development</a>：90% 使用率、AI 為「放大器」、七項 AI 能力模型、與交付穩定性的負向關係。</li>
+    <li><span class="tag">RCT</span><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR — Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity</a>：16 位開發者、246 個 issue、慢 19%、自評快 20%。</li>
+    <li><span class="tag">Telemetry</span><a href="https://www.faros.ai/blog/ai-acceleration-whiplash-takeaways">Faros AI — The AI Engineering Report 2026</a>：22,000 位開發者、churn +861%、incidents-to-PR +242.7%、review 時長 +441.5%、未 review 合併 +31.3%。</li>
+    <li><span class="tag">Telemetry</span><a href="https://linearb.io/dev-interrupted/podcast/linearb-2026-benchmarks-ai-pr-merge-rate">LinearB — 2026 Engineering Benchmarks</a>：810 萬 PR、AI PR 合併率 32.7% vs 84.5%、pickup 5.25 倍、PR 規模 400+ 行。</li>
+    <li><span class="tag">Code analysis</span><a href="https://www.gitclear.com/the_ai_code_quality_maintainability_gap">GitClear — The Maintainability Gap (2026)</a>：6.23 億筆變更、duplication +81%、moved code 21% → 3.8%、error-masking +47%。</li>
+    <li><span class="tag">Security</span><a href="https://www.businesswire.com/news/home/20250730694951/en">Veracode — 2025 GenAI Code Security Report</a>：80 項任務、100+ 模型、45% 引入 OWASP Top 10 缺陷、XSS 86%、log injection 88%。</li>
+    <li><span class="tag">Security</span><a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-slopsquatting-ai-supply-chain-20260419-csa/">Cloud Security Alliance — Slopsquatting research note</a>：223 萬樣本、19.7% 含幻覺套件、43% 幻覺名稱十次重測皆出現。</li>
+    <li><span class="tag">Practice</span><a href="https://www.thoughtworks.com/radar/techniques/complacency-with-ai-generated-code">Thoughtworks Technology Radar — Complacency with AI-generated code（Hold, 2025.11）</a>：automation bias、變更集過大、建議以 TDD 與靜態分析對抗。</li>
+    <li><span class="tag">Practice</span><a href="https://simonw.substack.com/p/vibe-engineering">Simon Willison — Vibe engineering</a>：自動化測試、事前規劃、文件、版本控制、CI、code review 文化作為 AI 協作的前提。</li>
+  </ul>
+
+  <hr class="end">
+  <p class="foot">
+    調查報告 · 2026 年 8 月<br>
+    資料期間 2025.01–2026.08。工程遙測資料來自商業廠商，具立場且相關不等於因果；<br>
+    工具名稱僅為說明代表性類別，非背書。所有數據請以原始來源為準。
+  </p>
+</section>
+
+</div>
+<footer class="sitefoot">
+  本文由 Claude（Anthropic）協助研究與撰寫，內容經人工審閱後發布。<br>
+  引用之統計數據版權屬各原始研究單位，本文僅作事實引用並標注出處；工具名稱僅為說明代表性類別，非背書。<br>
+  本站內容採 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh-hant">CC BY 4.0</a> 授權。<a href="../../">回到索引</a>
+</footer>
+
+</div>
+</body>
+</html>

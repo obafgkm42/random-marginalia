@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>文章標題 · Engineering Marginalia</title>
+<meta name="description" content="一句話說明這篇在講什麼。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文章標題">
+<meta property="og:description" content="一句話說明這篇在講什麼。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+<nav class="sitenav">
+  <a class="brand" href="../../">Engineering Marginalia</a>
+  <span class="links">
+    <a href="../../">← 所有文章</a>
+    <!-- 有 PDF 才留這行 -->
+    <a href="slug.pdf">PDF 版本</a>
+  </span>
+</nav>
+
+<header class="mast">
+  <p class="kicker">Engineering Research · 2026.09</p>
+  <h1>文章標題</h1>
+  <p class="dek">導言：兩三句話說明這篇解決什麼問題、涵蓋哪些範圍。</p>
+  <div class="meta">
+    <span><b>主題</b> Topic in English</span>
+    <span><b>資料期間</b> 2025.01 – 2026.08</span>
+    <span><b>語言</b> 繁體中文 · 英文術語保留原文</span>
+  </div>
+</header>
+
+<div class="col">
+
+<!-- ============================================================
+     可用的排版元件一覽（不需要的整段刪掉）
+     ============================================================ -->
+
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>章節標題</h2></div>
+
+  <p class="lead">開頭的重點段落，字級略大、顏色略淡。</p>
+
+  <p>一般段落。中文正文裡的英文術語用 <span class="en">quality gate</span> 這個標記，
+  會以等寬字呈現——這是本站的排版慣例，讓術語在中文行文中可以被掃到。</p>
+
+  <h3>次級標題</h3>
+  <h4>小標籤（全大寫等寬）</h4>
+
+  <ul>
+    <li><strong>重點</strong>——說明文字。</li>
+    <li>一般項目。</li>
+  </ul>
+
+  <!-- 數據讀數卡：加 class="up" 數字轉紅（惡化），"down" 轉琥珀 -->
+  <div class="readouts">
+    <div class="ro">
+      <span class="n">84%</span>
+      <span class="l">這個數字代表什麼的說明文字</span>
+      <span class="s">Source Name 2026</span>
+    </div>
+    <div class="ro up">
+      <span class="n">+861%</span>
+      <span class="l">惡化中的指標</span>
+      <span class="s">Source Name 2026</span>
+    </div>
+  </div>
+
+  <!-- 提示框：預設青色，.warn 琥珀，.crit 紅 -->
+  <div class="note">
+    <h4>框標題</h4>
+    <p>需要被獨立標出來的重點、方法論說明或注意事項。</p>
+  </div>
+
+  <!-- 表格：外層 .tw 提供橫向捲動，手機不會撐破版面 -->
+  <div class="tw">
+  <table>
+    <caption>資料來源與方法論註記寫在這裡。</caption>
+    <thead><tr><th>欄一</th><th>欄二</th><th>欄三</th></tr></thead>
+    <tbody>
+      <tr><td class="gate">標籤</td><td>內容</td><td>內容</td></tr>
+      <tr><td class="gate">標籤</td><td>內容</td><td>內容</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- 流程階梯：有先後順序的關卡／步驟才用 -->
+  <div class="ladder">
+    <div class="rung"><span class="g">GATE 0</span><span class="t">階段名稱 <em>細項 · 細項 · 細項</em></span></div>
+    <div class="rung"><span class="g">GATE 1</span><span class="t">階段名稱 <em>細項 · 細項</em></span></div>
+  </div>
+
+  <!-- 檢查清單 -->
+  <ul class="check">
+    <li><span class="box"></span><span><b>檢查項目標題</b><span class="d">補充說明。</span></span></li>
+    <li><span class="box"></span><span><b>只有標題的項目</b></span></li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     資料來源：每篇文章都應該有這一節
+     ============================================================ -->
+<section>
+  <div class="sec-head"><span class="sec-num">09</span><h2>資料來源</h2></div>
+  <ul class="src">
+    <li><span class="tag">Survey</span><a href="https://example.com">來源標題</a>：本文引用了哪些數字。</li>
+    <li><span class="tag">Telemetry</span><a href="https://example.com">來源標題</a>：本文引用了哪些數字。</li>
+  </ul>
+
+  <hr class="end">
+  <p class="foot">
+    調查報告 · 2026 年 9 月<br>
+    資料期間 2025.01–2026.08。引用資料的立場與限制寫在這裡。
+  </p>
+</section>
+
+</div>
+
+<footer class="sitefoot">
+  本文由 Claude（Anthropic）協助研究與撰寫，內容經人工審閱後發布。<br>
+  引用之統計數據版權屬各原始研究單位，本文僅作事實引用並標注出處；工具名稱僅為說明代表性類別，非背書。<br>
+  本站內容採 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh-hant">CC BY 4.0</a> 授權。<a href="../../">回到索引</a>
+</footer>
+
+</div>
+</body>
+</html>
