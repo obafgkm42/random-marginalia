@@ -102,7 +102,7 @@ Every article must:
 - avoid reproducing third-party charts, screenshots, tables or substantial text without a compatible licence or permission;
 - mark any included third-party material and its licence next to the item;
 - avoid confidential, personal or employer-owned information; and
-- retain a human-reviewed AI-assistance disclosure.
+- disclose AI authorship without overstating the level of human review.
 
 See [COMPLIANCE.md](COMPLIANCE.md) for the source log, third-party rights, privacy, correction and release procedures. It is a practical publishing checklist, not legal advice.
 

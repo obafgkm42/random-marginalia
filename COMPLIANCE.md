@@ -82,15 +82,15 @@ Product and company names may identify the tools or studies discussed. Do not us
 
 Avoid unsupported statements about security, legality or performance. Describe the source, population, date and uncertainty instead of turning a limited study into a universal claim.
 
-## 7. Disclose and verify AI assistance
+## 7. Disclose AI authorship accurately
 
-Keep a short disclosure when AI tools materially assisted research, drafting or editing. Human review remains responsible for:
+State when AI tools materially researched or wrote an article. Do not claim a level of human review that did not occur. At minimum:
 
-- opening and checking every cited source;
-- matching each number to the correct population, denominator and date;
-- removing fabricated quotations, citations and product capabilities;
-- checking that confidential material was not supplied or reproduced; and
-- approving the final wording and licence markings.
+- name the AI tool when it is known;
+- provide source links so readers can verify claims independently;
+- say explicitly that errors may remain;
+- distinguish automated drafting from any checks that actually occurred; and
+- correct fabricated quotations, citations or product capabilities when discovered.
 
 Do not rely on a model provider's output-ownership clause as proof that every generated passage is original or free of third-party rights.
 
@@ -116,6 +116,6 @@ Use Git history for editorial transparency, but remember that deleting a file in
 - [ ] Third-party items excluded from CC BY 4.0 are marked next to the item.
 - [ ] Commercial interests, methodological limits and stale data are disclosed where relevant.
 - [ ] HTML comments, links, screenshots, PDF metadata and Git diff contain no secrets or personal data.
-- [ ] AI-assisted claims and citations were checked against the original sources.
+- [ ] AI authorship and the actual level of human checking are described accurately.
 - [ ] The article footer, source list, index entry and generated PDF agree.
 - [ ] Links were checked and the article was reviewed on desktop, mobile and print layouts.
