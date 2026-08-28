@@ -1,12 +1,12 @@
-# Engineering Marginalia
+# Random Marginalia
 
-Evidence-led notes on software engineering practice.
+Evidence-led notes on whatever is worth examining.
 
-Each article starts with a focused engineering question, reviews published research, industry surveys and engineering telemetry, then separates what the evidence shows from what teams can reasonably do in practice.
+Each article starts with a focused question, reviews relevant published sources and available data, then separates what the evidence shows from what can reasonably be concluded.
 
 - **Language:** Traditional Chinese, with English technical terms kept in the original
 - **Format:** a dependency-free static site, plus optional PDFs
-- **Live site:** <https://obafgkm42.github.io/engineering-marginalia/>
+- **Live site:** <https://obafgkm42.github.io/random-marginalia/>
 
 ## Articles
 
@@ -113,7 +113,7 @@ See [COMPLIANCE.md](COMPLIANCE.md) for the source log, third-party rights, priva
 - Headings use `Noto Serif TC`, body text uses `Noto Sans TC`, and terms and figures use `IBM Plex Mono`, with local fallbacks.
 - The reading measure is about 720 px; numeric columns use `tabular-nums`.
 
-To rename the site, replace `Engineering Marginalia` in the root index, article pages, the article template and the `SITE_NAME` constant in `tools/build_pdf.py`.
+To rename the site, replace `Random Marginalia` in the root index, article pages, the article template and the `SITE_NAME` constant in `tools/build_pdf.py`.
 
 ## Licence
 

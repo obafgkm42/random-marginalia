@@ -30,7 +30,7 @@ try:
 except ImportError:
     sys.exit("請用 uv 執行：uv run tools/build_pdf.py <html>（見檔頭說明）")
 
-SITE_NAME = "Engineering Marginalia"
+SITE_NAME = "Random Marginalia"
 
 FOOTER = (
     '<div style="width:100%;font-family:\'IBM Plex Mono\',monospace;font-size:7.5pt;'
