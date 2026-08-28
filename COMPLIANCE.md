@@ -1,6 +1,6 @@
 # Editorial and compliance checklist
 
-This document is a practical publishing policy for Engineering Marginalia. It is not legal advice, and exceptions and limitations to copyright differ by jurisdiction. When a planned use is material, ambiguous or commercial, obtain advice for the relevant jurisdiction.
+This document is a practical publishing policy for Random Marginalia. It is not legal advice, and exceptions and limitations to copyright differ by jurisdiction. When a planned use is material, ambiguous or commercial, obtain advice for the relevant jurisdiction.
 
 ## 1. Keep a source record
 
