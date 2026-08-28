@@ -5,11 +5,14 @@ This repository is dual-licensed.
 1. 文章內容 / Article content
 ================================================================================
 
-適用範圍：posts/ 目錄下的所有文字內容、index.html 中的文章描述文字，
-          以及一併發布的 PDF。
+適用範圍：本 repository 作者原創的文章文字、index.html 中的文章描述、
+          README.md、COMPLIANCE.md，以及一併發布的 PDF；僅限作者實際
+          持有的權利。
 
-Applies to: all prose content under posts/, the article descriptions in
-            index.html, and the accompanying PDF files.
+Applies to: original editorial text created by this repository's author,
+            article descriptions in index.html, README.md, COMPLIANCE.md,
+            and the accompanying PDF files, only to the extent of rights
+            actually held by the author.
 
 授權條款 / License:
     Creative Commons Attribution 4.0 International (CC BY 4.0)
@@ -30,16 +33,17 @@ license, and indicate if changes were made.
 第三方素材例外 / Third-party material exception
 --------------------------------------------------------------------------------
 
-本 repository 的文章引用了第三方研究單位發表的統計數據，這些數據的
-權利屬於各原始研究單位，不在上述 CC BY 4.0 授權範圍內。本 repository
-僅作事實引用並標注出處。各原始報告有各自的授權條款，重製或再散布前
-請直接向原始來源確認。
+第三方文字、圖表、圖片、商標、資料集及其他第三方素材，不在上述
+CC BY 4.0 授權範圍內，除非該項素材旁另有明確標示。個別事實未必受
+著作權保護，但其具體表達、選擇編排、資料庫權利及契約條款可能受到
+不同司法管轄區的保護。重製或再散布前，請查閱各原始來源及其條款。
 
-Statistics cited in these articles remain the property of their respective
-research publishers and are NOT covered by the CC BY 4.0 grant above. They
-are reproduced here as factual citation with attribution. Each source
-report carries its own terms; consult the original source before
-reproducing or redistributing them.
+Third-party text, charts, images, trademarks, datasets and other third-party
+material are excluded from the CC BY 4.0 grant above unless the item is
+explicitly marked otherwise. Individual facts may not be protected by
+copyright, but their expression, selection and arrangement, database rights,
+and contractual terms may be protected in some jurisdictions. Consult each
+original source and its terms before reproducing or redistributing it.
 
 文章中提及的產品與工具名稱為各自所有者的商標，僅作指稱性使用，
 不代表任何形式的背書或關聯。
@@ -59,7 +63,7 @@ Applies to: assets/style.css, everything under tools/, and the HTML
 
 MIT License
 
-Copyright (c) 2026 <你的名字 / YOUR NAME>
+Copyright (c) 2026 obafgkm42
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -84,12 +88,11 @@ SOFTWARE.
 3. AI 協作揭露 / AI assistance disclosure
 ================================================================================
 
-本 repository 的文章由 Claude (Anthropic) 協助研究與撰寫，內容經人工
-審閱後發布。依 Anthropic 服務條款，模型輸出之權利已讓與使用者。
+本 repository 的部分內容由 AI 工具協助研究、撰寫或編輯，並經人工
+審閱後發布。
 
-Articles in this repository were researched and drafted with assistance from
-Claude (Anthropic) and reviewed by a human before publication. Under
-Anthropic's terms of service, rights in model outputs are assigned to the user.
+Some content in this repository was researched, drafted or edited with the
+assistance of AI tools and reviewed by a human before publication.
 
 請注意：在美國等司法管轄區，純由 AI 生成而缺乏人類作者性的內容可能
 不受著作權保護。上述 CC BY 4.0 授權係就本 repository 持有之權利範圍
