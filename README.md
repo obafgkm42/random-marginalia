@@ -4,7 +4,6 @@ Evidence-led notes on whatever is worth examining.
 
 Each article starts with a focused question, reviews relevant published sources and available data, then separates what the evidence shows from what can reasonably be concluded.
 
-- **Language:** Traditional Chinese, with English technical terms kept in the original
 - **Format:** a dependency-free static site, plus optional PDFs
 - **Live site:** <https://obafgkm42.github.io/random-marginalia/>
 
@@ -12,6 +11,7 @@ Each article starts with a focused question, reviews relevant published sources 
 
 | Date | Article | Formats |
 | --- | --- | --- |
+| 2026.08 | 云南为什么会长出这些诡异又美丽的植物？ · *Why Yunnan grows such strange and beautiful plants* | [Web](posts/2026-08-yunnan-strange-plants/) |
 | 2026.08 | AI 寫的程式碼，工程師到底怎麼驗收？ · *How developers actually verify AI-generated code* | [Web](posts/2026-08-ai-coding-quality-assurance/) · [PDF](posts/2026-08-ai-coding-quality-assurance/ai-coding-quality-assurance.pdf) |
 
 ## Repository structure
@@ -86,7 +86,7 @@ uv run tools/build_pdf.py posts/<slug>/index.html
 
 The script declares its Playwright dependency with [PEP 723](https://peps.python.org/pep-0723/) metadata and uses `tools/build_pdf.py.lock`; it does not require a project virtual environment. The print layout is shared with the browser through `assets/style.css`.
 
-For Traditional Chinese text, install Noto CJK fonts if the host does not already provide compatible fonts. On Debian or Ubuntu:
+For Chinese text, install Noto CJK fonts if the host does not already provide compatible fonts. On Debian or Ubuntu:
 
 ```bash
 sudo apt install fonts-noto-cjk
@@ -110,7 +110,7 @@ See [COMPLIANCE.md](COMPLIANCE.md) for the source log, third-party rights, priva
 
 - Colour, typography and spacing are CSS custom properties in `assets/style.css`.
 - Light, dark and system themes use the same token names and should be updated together.
-- Headings use `Noto Serif TC`, body text uses `Noto Sans TC`, and terms and figures use `IBM Plex Mono`, with local fallbacks.
+- Chinese headings and body text use the SC or TC Noto CJK variant selected by each page's `lang` attribute; terms and figures use `IBM Plex Mono`, with local fallbacks.
 - The reading measure is about 720 px; numeric columns use `tabular-nums`.
 
 To rename the site, replace `Random Marginalia` in the root index, article pages, the article template and the `SITE_NAME` constant in `tools/build_pdf.py`.
