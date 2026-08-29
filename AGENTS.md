@@ -8,9 +8,10 @@
 
 ## Change workflow
 
-- Prefer a pull request for new articles, code, styles, templates, generated files, multi-file changes, or any change that benefits from review.
-- Direct commits to `main` are allowed only for small, low-risk documentation or metadata changes, such as typo fixes, bylines, links, and workflow notes.
-- If the correct path is uncertain, create a branch and open a pull request.
+- Use a pull request for every repository change by default, including small documentation and metadata edits.
+- Commit or push directly to `main` only when the user explicitly authorizes a direct commit or direct push for the current task.
+- Do not infer direct-push permission from the size or risk of a change, from earlier tasks, or from a general request to proceed autonomously.
+- If the user has not specified a workflow, create a branch and open a pull request.
 - Keep one task cohesive. When practical, make one complete commit instead of one commit per file or per API call.
 - Do not rewrite published history merely to clean up commit messages unless the user explicitly requests it.
 
