@@ -22,10 +22,15 @@ Each article starts with a focused question, reviews relevant published sources 
 ├── assets/style.css           Shared screen and print styles
 ├── posts/
 │   ├── _template/index.html   Reusable article template
+│   ├── _template/review-log.md  Review log template
 │   └── YYYY-MM-topic/
 │       ├── index.html
+│       ├── review-log.md      Review record; committed with the article
 │       └── topic.pdf          Optional generated PDF
 ├── tools/build_pdf.py         Playwright-based PDF renderer
+├── docs/review-spec.md        Pre-publication agent review process
+├── docs/style-rules.md        Numbered style and evidence rules
+├── docs/review-agents.md      Reviewer and arbiter prompts
 ├── COMPLIANCE.md              Editorial and rights-review checklist
 ├── LICENSE                    CC BY 4.0 and MIT scopes
 └── README.md
@@ -54,10 +59,11 @@ The site is deployed from `main` with GitHub Pages. Keep `.nojekyll`: without it
    ```
 
 2. Update the page title, description, masthead, article body and source list.
-3. Add the new article to `index.html` and to the table above.
-4. Complete the [pre-publication checklist](COMPLIANCE.md#pre-publication-checklist).
-5. Optionally generate and inspect a PDF.
-6. Commit and push; GitHub Pages redeploys automatically.
+3. Run at least one [agent review round](docs/review-spec.md) and revise; record it in `review-log.md` beside the article.
+4. Add the new article to `index.html` and to the table above.
+5. Complete the [pre-publication checklist](COMPLIANCE.md#pre-publication-checklist).
+6. Optionally generate and inspect a PDF.
+7. Open a pull request; on merge, GitHub Pages redeploys automatically.
 
 ### Article components
 
@@ -105,6 +111,8 @@ Every article must:
 - disclose AI authorship without overstating the level of human review.
 
 See [COMPLIANCE.md](COMPLIANCE.md) for the source log, third-party rights, privacy, correction and release procedures. It is a practical publishing checklist, not legal advice.
+
+Articles are AI-drafted, so the check that matters is whether a draft survives being argued with. Before publication each one goes through independent style and substance review under [docs/review-spec.md](docs/review-spec.md), against the numbered rules in [docs/style-rules.md](docs/style-rules.md), with an arbiter holding a hard three-round budget so review terminates. The record of each article's review is kept in `review-log.md` in its directory.
 
 ## Design notes
 
