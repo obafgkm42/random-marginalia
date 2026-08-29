@@ -27,6 +27,12 @@
   --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 
+html[lang="zh-Hans"]{
+  --f-display:"Noto Serif SC","Noto Serif CJK SC","Songti SC",Georgia,serif;
+  --f-body:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",
+           -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --paper:#0D1216;
@@ -168,6 +174,22 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
   letter-spacing:-.01em;color:var(--ink-2);white-space:nowrap;
 }
 
+/* ---------- 圖片與圖說 ---------- */
+.photo-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;margin:0 0 24px;
+}
+.photo{
+  margin:0;background:var(--surface);border:1px solid var(--line);
+  break-inside:avoid;
+}
+.photo img{display:block;width:100%;height:auto;background:var(--surface-2)}
+.photo figcaption{
+  padding:10px 12px 12px;font-size:11.5px;line-height:1.65;color:var(--muted);
+}
+.photo figcaption a{color:inherit}
+.photo-wide{max-width:720px;margin:0 0 24px}
+
 /* ---------- 數據讀數卡 ---------- */
 .readouts{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));
@@ -285,6 +307,7 @@ hr.end{border:none;border-top:2px solid var(--ink);margin:56px 0 20px}
 /* ---------- 手機 ---------- */
 @media (max-width:640px){
   body{font-size:15.5px;line-height:1.85}
+  .photo-grid{grid-template-columns:1fr}
   .rung{grid-template-columns:1fr;gap:6px}
   .mast{padding-top:40px}
   .wrap{padding-bottom:64px}
@@ -316,6 +339,12 @@ hr.end{border:none;border-top:2px solid var(--ink);margin:56px 0 20px}
   .lead{font-size:10.8pt}
   li{margin-bottom:4pt}
   ul,ol{margin-bottom:9pt}
+
+  .photo-grid{grid-template-columns:repeat(2,1fr);gap:8pt;margin-bottom:12pt}
+  .photo{page-break-inside:avoid;break-inside:avoid}
+  .photo img{max-height:120mm;object-fit:contain}
+  .photo figcaption{font-size:7.5pt;line-height:1.55;padding:5pt 6pt}
+  .photo-wide{max-width:none}
 
   .readouts{grid-template-columns:repeat(2,1fr);page-break-inside:avoid;break-inside:avoid;margin-bottom:12pt}
   .ro{padding:10pt 11pt 9pt}
