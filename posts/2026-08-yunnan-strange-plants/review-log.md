@@ -292,3 +292,52 @@ The author also corrected the Commons modification notice identified in dismisse
 - **Known limitations:** none remain in the final draft; the arbiter’s sole note, the unsourced Jingmai-specific fungal mechanism, was removed before the pull request.
 - **Escalations to the owner:** none
 - **Spans closed by the arbiter:** R1-B08 image-attribution span, closed in Round 3 under the stated-exit rule; the author nevertheless corrected the newly discovered upstream modification notice.
+
+---
+
+# Rewrite review cycle — 2026-08-31
+
+A second, independent review cycle, opened because the article was substantively
+rewritten after the cycle above closed. `review-spec.md` §Applies-to covers "every
+substantive rewrite of a published article", so the round budget resets.
+
+| Field | Value |
+| --- | --- |
+| Article | `posts/2026-08-yunnan-strange-plants/index.html` |
+| Rules version | review-spec.md 1.1, style-rules.md 1.1 |
+| Author agent | Claude (Anthropic Opus 5), rewriting a draft researched and written by Codex (OpenAI GPT-5) |
+| Reviewer agents | Round 1: independent style-and-structure reviewer and substance reviewer, each in a fresh context |
+| Rounds completed | (pending) |
+| Terminal verdict | (pending) |
+
+## Round 0 — draft
+
+- Source log complete per `COMPLIANCE.md` §1: yes — `source-log.md`, extended with S33–S38 for this cycle.
+- What changed, and why: the published text organised itself as a sequence of self-contained paragraphs on the template *[subject] + [study and figures] + [caveat sentence]*, and connected its sections with the recurring scaffolding noun 「横断面」 (8 occurrences) plus phrases such as 「本文选择…追踪…」. The rewrite keeps every fact, figure, citation anchor, image and caption, and changes how the prose moves: sections hand off through the terrain being described rather than through signposts, researchers are named as the agents of the measurements they made, and source limitations are folded into the clause they qualify instead of being appended as a separate sentence to each paragraph. Three paragraphs in the limestone section that restated one habitat were merged into two; a contentless generality above the ectomycorrhiza passage was cut.
+- Then expanded, at the owner's request, because the selection was too thin to sit under the article's own counts and the fungi were under-represented: a new section on mushrooms reaching the market (barcoding, *Lanmaoa asiatica* poisonings, the *Trogia venenata* death clusters), a new section on dry-hot valleys (rain shadow, Yuanjiang climate, floristic divergence between three valleys), the fig–fig wasp mutualism in the rainforest section, and two narrowly distributed limestone *Oreocharis* species in the karst section.
+- Author self-check against `docs/style-rules.md`: 「横断面」 and other self-referential signposts reduced to zero; em dashes in the body kept to 5; `<span class="en">` first-use marking audited; every source anchor verified to resolve in both directions (38 refs, 38 ids, no orphans); every numeric value in the body diffed against the pre-rewrite text to confirm none drifted.
+- Verification standard applied to the expansion: every added figure was read out of the source PDF itself. Search-result summaries were not treated as sources — one such summary attributed "183 Rhododendron, 93 Primula, 90 Gentiana" to a 2008 paper whose transects actually recorded 19/13/14, and another rendered "36.45% temperate genera" as "nearly one-third endemic". Both were discarded.
+- Central question, claim or task: unchanged from the first cycle — explain why markedly different plants and fungi occur close together in Yunnan, and how organisms themselves add habitats and relationships once topography has set the environmental gradient.
+- Organising logic actually used: a descent from north-western alpine scree to a managed old-tea forest in the south, interrupted deliberately twice — once by rain shadow, once by substrate — to show that elevation alone does not determine what grows. The explanatory scale widens from an organ to a forest to a managed landscape.
+- Broad, representative or comprehensive scope claims: none. The opening states that the two counts measure different things and cannot be added; every survey figure is attributed to the plot, market sample, hospital, station or valley it came from.
+
+### Section relations
+
+| Section | Work done | Relation to preceding section |
+| --- | --- | --- |
+| 00 · 山地把气候竖了起来 | Vertical zonation, geographic isolation, and the boundary between the plant and fungus counts | — |
+| 01 · 流石滩 | Three organ-level answers to a short alpine growing season | Applies the opening gradient at its cold end |
+| 02 · 越过林线 | Trees large enough to become other organisms' environment, and the root tips where fungi attach | Descends out of the scree and changes the agent from climate to organism |
+| 03 · 森林地下 | Mycorrhizal partners and a chlorophyll-free plant drawing carbon from the same network | Follows the preceding section's root tips underground |
+| 04 · 菌子上了餐桌 | Barcoding mismatch, one hospital's poisoning series, and the Trogia death clusters | Changes level from the fungi's ecology to their identification by people |
+| 05 · 背风的一面 | Rain shadow, Yuanjiang's climate, and floristic divergence geology explains | First deliberate interruption of the elevation sequence |
+| 06 · 换一种石头 | Substrate confining plants to patches: a slipper orchid and two Oreocharis | Second interruption, on the same principle by a different mechanism |
+| 07 · 滇南五层森林 | Forest structure, fog, emergent trees, an obligate fig mutualism, termite agriculture, a parasite | Returns to the descent at its warm end and widens habitat construction to a whole forest |
+| 08 · 景迈古茶林 | Long-term human selection and governance inside a retained canopy | Extends habitat construction into a managed landscape |
+| 09 · 多出来的是关系 | Why the two counts cannot be added, and what the descent accumulated instead | Returns to the opening counts |
+| Appendix A | Three identification and field-risk boundaries | Removes supporting cautions from the explanatory sequence |
+| Appendix B | Image treatment and licensing boundary | Keeps rights apparatus outside the explanatory sequence |
+
+## Round 1
+
+(reviewer reports pasted verbatim below as they arrive)
