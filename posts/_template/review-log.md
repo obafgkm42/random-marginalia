@@ -5,9 +5,9 @@ Copied from `posts/_template/review-log.md`. Process: [docs/review-spec.md](../.
 | Field | Value |
 | --- | --- |
 | Article | `posts/YYYY-MM-slug/index.html` |
-| Rules version | review-spec.md 1.0 |
+| Rules version | review-spec.md 1.1 |
 | Author agent | model or tool name |
-| Reviewer agents | style / substance / arbiter, model or tool names |
+| Reviewer agents | style and structure / substance / arbiter, model or tool names |
 | Rounds completed | n of 3 |
 | Terminal verdict | ship \| ship-with-notes \| hold-for-human \| withdraw |
 
@@ -15,10 +15,22 @@ Copied from `posts/_template/review-log.md`. Process: [docs/review-spec.md](../.
 
 - Source log complete per `COMPLIANCE.md` §1: yes / no
 - Author self-check against `docs/style-rules.md`: what was changed before review
+- Central question, claim or task:
+- Organising logic actually used:
+- Broad, representative or comprehensive scope claims: none / list them
+
+### Section relations
+
+Record what each top-level section contributes and why it follows the preceding section. This is an author self-check, not input to the reviewers.
+
+| Section | Work done | Relation to preceding section |
+| --- | --- | --- |
+| Opening | | — |
+| | | |
 
 ## Round 1
 
-### Style reviewer report
+### Style and structure reviewer report
 
 Paste the report verbatim.
 

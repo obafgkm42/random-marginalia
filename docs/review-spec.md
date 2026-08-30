@@ -3,13 +3,13 @@
 Specification for the review that every article passes before a pull request is opened.
 
 - **Status:** active
-- **Version:** 1.0
+- **Version:** 1.1
 - **Applies to:** every new article and every substantive rewrite of a published article
 - **Companion documents:** [style-rules.md](style-rules.md) (the citable rules), [review-agents.md](review-agents.md) (role prompts), [../COMPLIANCE.md](../COMPLIANCE.md) (rights, privacy and sourcing policy)
 
 ## 1. Purpose
 
-Articles here are drafted by AI. The risk is therefore not plagiarism of a competitor's blog post but a quieter failure: prose that is fluent, confidently sourced-looking and wrong, written in the flattened register that reinforcement-tuned models fall into. This process exists to catch both before publication, at a cost proportionate to a small repository.
+Articles here are drafted by AI. The risk is therefore not plagiarism of a competitor's blog post but a quieter failure: prose that is fluent, confidently sourced-looking and wrong, written in the flattened register that reinforcement-tuned models fall into, or assembled from individually adequate passages that never form a coherent article. This process exists to catch those failures before publication, at a cost proportionate to a small repository.
 
 It has three properties:
 
@@ -20,7 +20,7 @@ It has three properties:
 ## 2. Non-goals
 
 - **Not AI detection.** Every article is AI-drafted and says so. The question is whether the writing is accurate and readable, not whether a classifier can guess its origin.
-- **Not a house voice.** Register follows the subject. A note on Yunnan's flora and a note on build systems should not sound alike. Only the rules in `style-rules.md` are enforced across topics.
+- **Not a house voice or house structure.** Register and organisation follow the subject. A note on Yunnan's flora and a note on build systems should not sound or unfold alike. Chronological, spatial, causal, comparative, procedural, question-led and reference-style structures are all admissible. Only the rules in `style-rules.md` are enforced across topics.
 - **Not a replacement for the human owner.** The arbiter can ship an article; it cannot decide a rights, privacy or contested-fact question. Those escalate.
 - **Not a copy-editing service.** Reviewers report defects. They do not rewrite paragraphs; see §4.
 
@@ -29,8 +29,8 @@ It has three properties:
 | Role | Who | Responsibility |
 | --- | --- | --- |
 | Author | The agent that drafted the article | Drafts, keeps the source log, revises in response to admitted findings, answers each finding in the review log |
-| Style reviewer | A separate agent instance | Finds violations of the `VOICE`, `TELL` and `FORM` rules |
-| Substance reviewer | A separate agent instance | Finds incoherence, unsupported claims, sourcing defects and `COMPLIANCE.md` failures |
+| Style and structure reviewer | A separate agent instance | Finds violations of the `VOICE`, `TELL`, `COH` and `FORM` rules |
+| Substance reviewer | A separate agent instance | Finds unsupported claims, invalid reasoning, sourcing defects and `COMPLIANCE.md` failures |
 | Arbiter | A separate agent instance | Triages findings, resolves reviewer conflicts, controls the round budget, issues the terminal verdict |
 | Owner | The human maintainer | Merges pull requests; decides anything escalated |
 
@@ -49,10 +49,10 @@ One agent may not hold two roles in the same round. The author agent may not rev
 Each finding is one entry in the review log:
 
 ```text
-ID        R<round>-<S|B><n>   e.g. R1-S04 (style), R1-B02 (substance)
-Rule      A rule ID from style-rules.md (VOICE/TELL/EVID/FORM), or COMPLIANCE §n
-Severity  must-fix | should-fix | optional
-Locator   section heading plus a quoted span of at most 25 words
+  ID        R<round>-<S|B><n>   e.g. R1-S04 (style/structure), R1-B02 (substance)
+  Rule      A rule ID from style-rules.md (VOICE/TELL/COH/EVID/FORM), or COMPLIANCE §n
+  Severity  must-fix | should-fix | optional
+  Locator   section heading plus one or two quoted spans totalling at most 25 words
 Problem   one sentence stating the defect
 Basis     why the cited rule is violated, or what evidence is missing
 ```
@@ -61,15 +61,22 @@ Severity is assigned by the reviewer and may be adjusted by the arbiter under §
 
 | Severity | Meaning | Effect |
 | --- | --- | --- |
-| `must-fix` | A factual error; a citation that is unverifiable, mismatched or fabricated; an incoherence that changes what the article claims; a `COMPLIANCE.md` checklist failure; or a style rule broken repeatedly enough to be a pattern, per `style-rules.md` §1 | Blocks the pull request |
-| `should-fix` | A single local defect: one style tell, one loose transition, one thin but not wrong source | Author must fix it or record a one-line reason for declining |
+| `must-fix` | A factual error; a citation that is unverifiable, mismatched or fabricated; a missing or contradictory organising logic that fragments the article as a whole; a scope claim unsupported by the article's selection; a `COMPLIANCE.md` checklist failure; or a style rule broken repeatedly enough to be a pattern, per `style-rules.md` §1 | Blocks the pull request |
+| `should-fix` | A single local defect: one style tell, one loose handoff, one detached example, one thin but not wrong source | Author must fix it or record a one-line reason for declining |
 | `optional` | Preference, alternative framing, further reading | Author may ignore it silently |
 
 Only `must-fix` blocks. This is what keeps the process from converging on the reviewers' taste.
 
 ## 6. Round protocol
 
-**Round 0 — draft.** The author writes the article, completes the source log required by `COMPLIANCE.md` §1, and self-checks against `style-rules.md`. Round 0 is not a review and does not count toward the budget.
+**Round 0 — draft.** The author writes the article, completes the source log required by `COMPLIANCE.md` §1, and self-checks against `style-rules.md`. In the review log, the author records:
+
+- the article's central question, claim or task;
+- the organising logic actually used, without selecting from a mandatory list;
+- one line for the work done by each top-level section and its relation to the preceding section; and
+- every claim of broad, representative or comprehensive scope, or `none`.
+
+This record is an author self-check, not a contract: the published article must make its own structure legible, and reviewers do not receive the author's Round 0 rationale. Round 0 is not a review and does not count toward the budget.
 
 **Round n (n ≥ 1).**
 
@@ -145,6 +152,7 @@ The log is a repository document, not part of the published page. It is not link
 A pull request that adds or substantively rewrites an article is ready when all of the following hold:
 
 - [ ] At least one full review round completed, with two independent reviewers.
+- [ ] Round 0 records the central task, chosen organising logic, section relations and any scope claims.
 - [ ] `review-log.md` exists in the article directory and every admitted finding has a disposition.
 - [ ] The terminal verdict is `ship` or `ship-with-notes`.
 - [ ] No `must-fix` finding is open.
