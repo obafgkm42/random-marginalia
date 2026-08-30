@@ -1,11 +1,15 @@
-# Style and evidence rules
+# Style, coherence and evidence rules
+
+- **Status:** active
+- **Version:** 1.1
 
 The numbered rules that reviewers cite. A finding without a rule ID here, or a section reference in [../COMPLIANCE.md](../COMPLIANCE.md), is inadmissible under [review-spec.md](review-spec.md) §4.
 
-Four families:
+Five families:
 
 - **VOICE** — register and stance
 - **TELL** — the recognisable residue of an assistant-tuned model
+- **COH** — continuity, structure and warranted scope
 - **EVID** — claims, figures and sources
 - **FORM** — layout and typography
 
@@ -17,7 +21,7 @@ The severity threshold follows from that:
 
 - One instance of a `TELL` or `FORM` pattern is `should-fix`.
 - Three or more instances of the same pattern, or a pattern that shapes the whole article's structure, is a **pattern** and therefore `must-fix`.
-- A `VOICE` or `EVID` violation is graded on the damage it does, not on how many times it occurs. One fabricated citation is `must-fix` on its own.
+- A `VOICE`, `COH` or `EVID` violation is graded on the damage it does, not on how many times it occurs. One fabricated citation is `must-fix` on its own; one loose handoff between otherwise coherent sections is normally `should-fix`, while a missing organising logic that fragments the whole article is `must-fix`.
 
 Quote the span. "The tone is off" is not a finding.
 
@@ -87,7 +91,23 @@ Quote the span. "The tone is off" is not a finding.
 
 **TELL-S04 · Padding by enumeration.** A list of items that could be one sentence, or list entries carrying one clause each.
 
-## 4. EVID — claims and sources
+## 4. COH — continuity, structure and warranted scope
+
+These rules judge whether an article sustains the structure it has chosen. They do not prescribe a house structure. Chronological, spatial, causal, comparative, procedural, question-led, reference-style and other forms are all admissible; a short note may need no visible sections at all.
+
+**COH-01 · The organising logic is recoverable.** The article's central question, claim or task and the relation among its main parts can be recovered from the published text. It may combine or change organising logics when the change is necessary and made legible. Do not require a journey, anecdote, narrative arc or any other preferred form.
+
+**COH-02 · Sections hand off substance, not stage directions.** An adjacent section advances, tests, contrasts, narrows, widens or deliberately changes the level of the preceding discussion. A heading or transition should make that relation legible where it is not already obvious. Meta-narration such as "next we examine" does not repair a missing relation.
+
+**COH-03 · Examples accumulate.** Examples, cases and profiles attach to a section-level claim and alter what the article has established. A repeated sequence of self-contained entries that resets the context each time is a defect when the article presents an explanation or argument; it is not a defect in a catalogue or reference article whose declared purpose is retrieval.
+
+**COH-04 · Supporting apparatus keeps its place.** Checklists, glossaries, safety notes, source notes, rights records and methodological cautions belong in the main sequence when they advance the article's central task. Otherwise they are set apart as a note or appendix rather than interrupting the article's line of development.
+
+**COH-05 · Scope is supported or narrowed.** When an article claims to explain a broad domain, provide a representative survey or cover named dimensions, its selection of evidence must support that claim. A reviewer may identify an omission only by showing which published scope claim, comparison or conclusion the omission leaves unsupported. There is no required number of examples and no universal coverage checklist.
+
+**COH-06 · Endings resolve the opening task.** The ending states what the assembled evidence establishes, preserves any material limitation and returns to the question, claim or task that opened the article. A summary table can support that work but does not replace it when the article has developed an explanation or argument.
+
+## 5. EVID — claims and sources
 
 **EVID-01 · Every material claim carries a source.** Recorded per `COMPLIANCE.md` §1, with the source's date and limitations.
 
@@ -105,7 +125,7 @@ Quote the span. "The tone is off" is not a finding.
 
 **EVID-08 · No smoothed-over gaps.** Where the evidence does not settle a question, say so. An inferred bridge between two sourced facts is the article's own interpretation and is labelled as such.
 
-## 5. FORM — layout and typography
+## 6. FORM — layout and typography
 
 **FORM-01 · Emphasis is rationed.** Bold marks a term on first definition or a genuine warning. Bold used for pacing is a tell.
 
@@ -119,11 +139,14 @@ Quote the span. "The tone is off" is not a finding.
 
 **FORM-06 · Terminology is consistent.** One term per concept throughout, with the English original marked by `<span class="en">` on first use in Chinese prose.
 
-## 6. What is not a rule
+## 7. What is not a rule
 
 These are outside the process, and a finding that rests on them is dropped:
 
 - sentence length, paragraph length or article length as such;
 - preference between two accurate phrasings;
-- the order of sections, unless the current order makes an argument unfollowable;
+- the presence or absence of storytelling, scene-setting, a journey, an anecdote or a visible thesis statement as such;
+- chronological, spatial, causal, comparative, procedural, question-led or reference-style organisation as a category;
+- the number of sections, examples or covered categories as such;
+- the order of sections, unless their current relations violate a `COH` rule;
 - topic choice, and the article's conclusion where the sources support it.
