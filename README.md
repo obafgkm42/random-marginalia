@@ -11,6 +11,7 @@ Each article starts with a focused question, reviews relevant published sources 
 
 | Date | Article | Formats |
 | --- | --- | --- |
+| 2026.08 | 極端氣候如何傳導至收成與糧價：六種作物的歷史案例、2026 狀況與 ETF · *How extreme climate moves through crop yields, food prices, and agricultural ETFs* | [Web](posts/2026-08-climate-crops-etfs/) |
 | 2026.08 | 云南为什么会长出这些诡异又美丽的植物与菌子？ · *Why Yunnan grows such strange and beautiful plants and fungi* | [Web](posts/2026-08-yunnan-strange-plants/) |
 | 2026.08 | AI 寫的程式碼，工程師到底怎麼驗收？ · *How developers actually verify AI-generated code* | [Web](posts/2026-08-ai-coding-quality-assurance/) · [PDF](posts/2026-08-ai-coding-quality-assurance/ai-coding-quality-assurance.pdf) |
 
@@ -75,6 +76,7 @@ The template contains a working example of every component.
 | `.readouts` / `.ro` | Statistic cards; `.up` and `.down` add status colours |
 | `.note`, `.note.warn`, `.note.crit` | Callouts with three severity levels |
 | `.tw` around a `<table>` | Horizontally scrollable table on narrow screens |
+| `figure.diagram` + `.canvas` + `<svg>` | Original inline-SVG diagram with a caption; scrolls horizontally on narrow screens |
 | `.ladder` / `.rung` | Ordered stages or gates |
 | `.check` | Checklist |
 | `.src` + `.tag` | Annotated source list |
@@ -120,6 +122,7 @@ Articles are AI-drafted, so the check that matters is whether a draft survives b
 - Light, dark and system themes use the same token names and should be updated together.
 - Chinese headings and body text use the SC or TC Noto CJK variant selected by each page's `lang` attribute; terms and figures use `IBM Plex Mono`, with local fallbacks.
 - The reading measure is about 720 px; numeric columns use `tabular-nums`.
+- Diagrams are inline SVG drawn with the same tokens, so they follow the theme and print without extra assets. Draw them from a source's described facts; do not redraw a source's own figure.
 
 To rename the site, replace `Random Marginalia` in the root index, article pages, the article template and the `SITE_NAME` constant in `tools/build_pdf.py`.
 
