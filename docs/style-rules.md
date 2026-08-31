@@ -1,7 +1,7 @@
 # Style, coherence and evidence rules
 
 - **Status:** active
-- **Version:** 1.1
+- **Version:** 1.2
 
 The numbered rules that reviewers cite. A finding without a rule ID here, or a section reference in [../COMPLIANCE.md](../COMPLIANCE.md), is inadmissible under [review-spec.md](review-spec.md) §4.
 
@@ -37,7 +37,7 @@ Quote the span. "The tone is off" is not a finding.
 
 **VOICE-05 · No unearned significance.** Do not call a finding surprising, important, striking or a milestone unless the article shows why, against what baseline. Adjectives are not evidence.
 
-**VOICE-06 · No meta-narration.** Do not describe the article's own structure ("this article will examine three aspects", "having established X, we now turn to Y") beyond what the introduction genuinely needs.
+**VOICE-06 · No meta-narration.** Do not describe the article's own structure ("this article will examine three aspects", "having established X, we now turn to Y"), and do not point at the page's own components ("the two numbers above"), beyond what the introduction genuinely needs.
 
 **VOICE-07 · Hedge once.** State uncertainty precisely and once — a sample size, a date range, a competing interpretation. Stacked hedges ("it may possibly suggest that, to some extent") say less than one honest caveat.
 
@@ -90,6 +90,8 @@ Quote the span. "The tone is off" is not a finding.
 **TELL-S03 · Both-sides closing.** A final paragraph that balances advantages against disadvantages and declines to conclude, where the evidence in the article does support a conclusion.
 
 **TELL-S04 · Padding by enumeration.** A list of items that could be one sentence, or list entries carrying one clause each.
+
+**TELL-S05 · Caveats in a fixed slot.** Limitations that all arrive in the same position and the same shape — a closing clause on the pattern "this is the figure for X, not Y", paragraph after paragraph — or a paragraph-final verdict with no stated subject. Each may be accurate and the set still reads as a mannerism. This is the commonest way an article acquires a tic from its own review: one `EVID` finding is cleared by bolting a qualification onto the end of a paragraph, and the next is cleared the same way.
 
 ## 4. COH — continuity, structure and warranted scope
 
