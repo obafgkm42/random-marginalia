@@ -292,3 +292,259 @@ The author also corrected the Commons modification notice identified in dismisse
 - **Known limitations:** none remain in the final draft; the arbiter’s sole note, the unsourced Jingmai-specific fungal mechanism, was removed before the pull request.
 - **Escalations to the owner:** none
 - **Spans closed by the arbiter:** R1-B08 image-attribution span, closed in Round 3 under the stated-exit rule; the author nevertheless corrected the newly discovered upstream modification notice.
+
+---
+
+# Rewrite review cycle — 2026-08-31
+
+A second, independent review cycle, opened because the article was substantively
+rewritten after the cycle above closed. `review-spec.md` §Applies-to covers "every
+substantive rewrite of a published article", so the round budget resets.
+
+| Field | Value |
+| --- | --- |
+| Article | `posts/2026-08-yunnan-strange-plants/index.html` |
+| Rules version | review-spec.md 1.1, style-rules.md 1.1 |
+| Author agent | Claude (Anthropic Opus 5), rewriting a draft researched and written by Codex (OpenAI GPT-5) |
+| Reviewer agents | Round 1: independent style-and-structure reviewer and substance reviewer, each in a fresh context |
+| Rounds completed | 2 of 3 |
+| Terminal verdict | ship-with-notes |
+
+## Round 0 — draft
+
+- Source log complete per `COMPLIANCE.md` §1: yes — `source-log.md`, extended with S33–S38 for this cycle.
+- What changed, and why: the published text organised itself as a sequence of self-contained paragraphs on the template *[subject] + [study and figures] + [caveat sentence]*, and connected its sections with the recurring scaffolding noun 「横断面」 (8 occurrences) plus phrases such as 「本文选择…追踪…」. The rewrite keeps every fact, figure, citation anchor, image and caption, and changes how the prose moves: sections hand off through the terrain being described rather than through signposts, researchers are named as the agents of the measurements they made, and source limitations are folded into the clause they qualify instead of being appended as a separate sentence to each paragraph. Three paragraphs in the limestone section that restated one habitat were merged into two; a contentless generality above the ectomycorrhiza passage was cut.
+- Then expanded, at the owner's request, because the selection was too thin to sit under the article's own counts and the fungi were under-represented: a new section on mushrooms reaching the market (barcoding, *Lanmaoa asiatica* poisonings, the *Trogia venenata* death clusters), a new section on dry-hot valleys (rain shadow, Yuanjiang climate, floristic divergence between three valleys), the fig–fig wasp mutualism in the rainforest section, and two narrowly distributed limestone *Oreocharis* species in the karst section.
+- Author self-check against `docs/style-rules.md`: 「横断面」 and other self-referential signposts reduced to zero; em dashes in the body kept to 5; `<span class="en">` first-use marking audited; every source anchor verified to resolve in both directions (38 refs, 38 ids, no orphans); every numeric value in the body diffed against the pre-rewrite text to confirm none drifted.
+- Verification standard applied to the expansion: every added figure was read out of the source PDF itself. Search-result summaries were not treated as sources — one such summary attributed "183 Rhododendron, 93 Primula, 90 Gentiana" to a 2008 paper whose transects actually recorded 19/13/14, and another rendered "36.45% temperate genera" as "nearly one-third endemic". Both were discarded.
+- Central question, claim or task: unchanged from the first cycle — explain why markedly different plants and fungi occur close together in Yunnan, and how organisms themselves add habitats and relationships once topography has set the environmental gradient.
+- Organising logic actually used: a descent from north-western alpine scree to a managed old-tea forest in the south, interrupted deliberately twice — once by rain shadow, once by substrate — to show that elevation alone does not determine what grows. The explanatory scale widens from an organ to a forest to a managed landscape.
+- Broad, representative or comprehensive scope claims: none. The opening states that the two counts measure different things and cannot be added; every survey figure is attributed to the plot, market sample, hospital, station or valley it came from.
+
+### Section relations
+
+| Section | Work done | Relation to preceding section |
+| --- | --- | --- |
+| 00 · 山地把气候竖了起来 | Vertical zonation, geographic isolation, and the boundary between the plant and fungus counts | — |
+| 01 · 流石滩 | Three organ-level answers to a short alpine growing season | Applies the opening gradient at its cold end |
+| 02 · 越过林线 | Trees large enough to become other organisms' environment, and the root tips where fungi attach | Descends out of the scree and changes the agent from climate to organism |
+| 03 · 森林地下 | Mycorrhizal partners and a chlorophyll-free plant drawing carbon from the same network | Follows the preceding section's root tips underground |
+| 04 · 菌子上了餐桌 | Barcoding mismatch, one hospital's poisoning series, and the Trogia death clusters | Changes level from the fungi's ecology to their identification by people |
+| 05 · 背风的一面 | Rain shadow, Yuanjiang's climate, and floristic divergence geology explains | First deliberate interruption of the elevation sequence |
+| 06 · 换一种石头 | Substrate confining plants to patches: a slipper orchid and two Oreocharis | Second interruption, on the same principle by a different mechanism |
+| 07 · 滇南五层森林 | Forest structure, fog, emergent trees, an obligate fig mutualism, termite agriculture, a parasite | Returns to the descent at its warm end and widens habitat construction to a whole forest |
+| 08 · 景迈古茶林 | Long-term human selection and governance inside a retained canopy | Extends habitat construction into a managed landscape |
+| 09 · 多出来的是关系 | Why the two counts cannot be added, and what the descent accumulated instead | Returns to the opening counts |
+| Appendix A | Three identification and field-risk boundaries | Removes supporting cautions from the explanatory sequence |
+| Appendix B | Image treatment and licensing boundary | Keeps rights apparatus outside the explanatory sequence |
+
+## Round 1
+
+Two reviewers ran independently in fresh contexts. Neither received the author's
+drafting notes; neither saw the other's report. The substance reviewer was given
+the six retrieved source PDFs and extracted their text directly. Reports are
+recorded verbatim.
+
+### Style and structure reviewer report — round 1
+
+Eight findings: R1-S01 FORM-02 (must-fix, five em dashes on one pattern);
+R1-S02 COH-02 (should-fix, §04 ends and §05 does not pick it up, nor does §09);
+R1-S03 COH-03 (should-fix, examples whose stated conclusion is that they do not
+attach); R1-S04 COH-05 (should-fix, masthead 范围 omits §05 and §06);
+R1-S05 FORM-06 (should-fix, conclusion reverts to 「松茸」);
+R1-S06 TELL-C02 (should-fix, 「对照做得很干脆」);
+R1-S07 FORM-03 (optional, §06 heading overstates the section);
+R1-S08 VOICE-05 (optional, the title's 「诡异又美丽」).
+
+### Substance reviewer report — round 1
+
+Sixteen findings. Must-fix: R1-B01 EVID-03 (1,750 mm evaporation bound to the
+wrong period and divided against a figure from another period); R1-B02 EVID-04
+(market 「鸡枞」 claim anchored to Otani et al., a termite fungus-comb study).
+Should-fix: R1-B03 EVID-04 (leaf-habit gloss states the hypothesis Yang et al.
+rejected); R1-B04 EVID-02 (fig counts' provenance); R1-B05 EVID-08 (unmarked
+shared-network bridge); R1-B06 EVID-07 (preprint status only in the source
+list); R1-B07 EVID-03 (「最像」 on an unnamed measure, contradicting the
+article's own percentages); R1-B08 EVID-03 (69.4% against a base of 81);
+R1-B09 EVID-03 (54.3% denominator absent); R1-B10 EVID-08 (deaths framed as a
+consequence of unreliable common names); R1-B11 EVID-01 (unsourced canopy and
+litter mechanism); R1-B12 EVID-01 (unsourced substrate-versus-elevation claim);
+R1-B13 EVID-01 (unverifiable citations); R1-B14 COMPLIANCE §1 (evidence details
+missing from the source record). Optional: R1-B15 EVID-04 (province-wide
+superlative); R1-B16 EVID-03 (30 new taxa without period or scope).
+
+### Arbiter — round 1
+
+**Verdict: revise.**
+
+Admitted: R1-B01, R1-B02 as filed at must-fix, both verified against the PDFs.
+R1-B08 **upgraded to must-fix** — Dai et al. Table 2 sums to 72 and 50/72 =
+69.4%, so against the paragraph's declared 81 a reader computes ~56 patients
+instead of 50; same class of defect as B01. R1-B03, B04, B05, B06, B07, B09,
+B10, B11, B12, B14, S02, S03, S04, S05, S06 admitted at should-fix; B15 and B16
+at optional. R1-S07 merged into R1-B12 as one defect. R1-B14 narrowed to its
+record-keeping half; R1-S02 narrowed to the §04→§05 handoff; R1-S03 narrowed to
+the §06 pouch paragraph.
+
+Dismissed: **R1-S01** — the basis is that a colon, comma or full stop could
+serve instead, which is the §7 "preference between two accurate phrasings"
+exclusion; all five dashes introduce an explanation or qualification, so there
+is no defect to multiply into a pattern. **R1-S08** — VOICE-05 governs
+significance claimed for a finding against a baseline, not a title's descriptive
+framing of its subject. **R1-B13** — names no defect, reporting only that this
+environment lacked PDFs; the arbiter resolved the load-bearing case itself by
+confirming that doi 10.1016/j.pld.2026.05.002 resolves to Zhou et al., *Plant
+Diversity* 2026, so no fabrication is suspected and §7.6 is not triggered.
+**R1-S03 in part** — the §01 绿绒蒿 and §07 寄生花 instances do attach, and their
+closing limits are the caveats the previous cycle's R1-B02 and R1-B03 required.
+
+Decisions: **ping-pong check on R1-B11 — not barred.** The previous cycle's
+R3-B02 was the Jingmai fungal-decomposition claim in §08, which the author
+deleted; R1-B11 is the treeline canopy sentence in §02. Different span,
+different claim, so §7.3 does not apply. **Cross-cycle conflict resolved:** the
+limiting clauses R1-S03 attacks were put there by admitted EVID findings, so
+they stay; acting on S03 must be by attaching the example to the section's
+claim, never by deleting a caveat. Li et al. 2024 and Lan et al. 2012 were not
+available and are not treated as defective.
+
+Stated exit condition (§7.5) — three blockers, nothing to be added later:
+
+1. R1-B01 — state the 1,750 mm potential evaporation against its own 2012–2021
+   station record; if the ratio is kept, the mixed periods must be visible.
+2. R1-B02 — anchor the market 「鸡枞」 sentence to a source that reports it, or
+   remove it.
+3. R1-B08 — state 69.4% against its actual base of 72 patients, or drop it.
+
+### Author revision — round 1
+
+| Finding | Disposition | What changed |
+| --- | --- | --- |
+| R1-B01 | fixed | Each figure now carries its own period, and the sentence says the two cannot be divided. |
+| R1-B02 | fixed | Sentence deleted; the paragraph's Termitomyces material stays on [20]. |
+| R1-B08 | fixed | Restated as "出现神经精神症状的 72 人里，约 69.4%". |
+| R1-B03 | fixed | Now reports the paper's convergence result instead of the hypothesis it rejected. |
+| R1-B04 | fixed | Both counts marked as background the source cites, not its own inventory. |
+| R1-B05 | fixed | The shared-network reading is labelled unverified, and the opener no longer asserts one network. |
+| R1-B06 | fixed | 「一份未经同行评审的预印本」 now sits beside the claim. |
+| R1-B07 | fixed | Similarity coefficients named (73.84% generic, 53.76% specific) and marked as a different measure. |
+| R1-B09 | **deferred** | Li et al. 2024 could not be obtained, so the number of sampled populations cannot be stated. Carried as a known limitation. |
+| R1-B10 | fixed | Opener changed to 「认不出的菌子，代价可以大得多」; the naming causal bridge is gone. |
+| R1-B11 | fixed | The unsourced canopy and litter list was deleted and the conclusion's pillar rebuilt on the sourced carbon pathway. |
+| R1-B12 + R1-S07 | fixed | Opening sentence and heading narrowed to what the sources show. |
+| R1-B14 | fixed | S12, S19 and S34 evidence columns extended; the post-2008 decline is recorded as appearing only in a figure caption. |
+| R1-B15 | fixed | Province-wide superlative dropped. |
+| R1-B16 | fixed | Scope and period given; the inference drawn from the count removed. |
+| R1-S02 | fixed | §05 opens with an explicit return to the terrain, and §09 now picks up the identification thread. |
+| R1-S03 | fixed | The pouch paragraph now attaches to what the section establishes. |
+| R1-S04 | fixed | 范围 line widened to 滇西北高山—干热河谷—滇东南喀斯特—滇南雨林与古茶林. |
+| R1-S05 | fixed | Conclusion uses 松口蘑. |
+| R1-S06 | fixed | 「对照做得很干脆」 deleted. |
+| R1-S01, R1-S08, R1-B13 | n/a | Dismissed by the arbiter. |
+
+Three em dashes introduced by these fixes were converted to a colon, a semicolon
+and a full stop, holding the body at five.
+
+## Round 2
+
+Two fresh reviewers, again in independent contexts, neither having seen round 1's
+reports. The substance reviewer was asked first to verify the three stated
+blockers against the PDFs rather than take the author's word for them.
+
+### Style and structure reviewer report — round 2
+
+Five findings, none must-fix (§7.2 freeze). R2-S01 COH-02 (should-fix, the
+§04→§05 handoff is now carried by the stage direction 「回到山里」); R2-S02 COH-03
+(should-fix, the 2019 drought introduced twice, conclusion before premise);
+R2-S03 TELL-C03 (should-fix, 「有意思的是」); R2-S04 FORM-06 (should-fix, the head
+`<meta name="description">` still lists 「松茸」 among species names);
+R2-S05 VOICE-07 (optional, 「暂列」 and 「只是初步的」 state one reservation twice).
+
+The reviewer identified S01, S02 and S03 as defects introduced by the round 1
+fixes, citing `git diff 5e2ab8e de456b3`. It recorded checks that came back
+sound: FORM-01, FORM-04, FORM-05, TELL-S01 (triplets counted; four- and six-item
+lists equally frequent, and most triplets come from the sources), TELL-S02,
+TELL-S03, COH-01, COH-04, COH-06.
+
+### Substance reviewer report — round 2
+
+Preamble: all three round 1 blockers verified cleared against the PDFs — the
+1,750 mm evaporation now sits on the paper's 2012–2021 YSERS record; the
+市场「鸡枞」/Otani sentence is gone; 69.4% now carries the base 72, which the
+reviewer confirmed against Dai Table 2 (20 neuropsychiatric + 52 mixed = 72).
+
+Eight findings, none must-fix. R2-B01 EVID-07 (should-fix, the atlas-and-photo
+identification behind all 81 Lanmaoa cases does not travel with the claim, and
+sits against the article's own appendix note that photographs cannot identify a
+mushroom); R2-B02 EVID-07 (should-fix, the closing sentence drops the probable-
+cause qualification §04 established); R2-B03 EVID-04 (should-fix, a light/litter/
+humidity mechanism attached to a stem census); R2-B04 EVID-04 (should-fix, the
+blanket provenance sentence is wrong for the 49-species figure and contradicts
+the source list); R2-B05 EVID-04 (should-fix, a market-naming claim carried by a
+root-tip study); R2-B06 COMPLIANCE §1 (should-fix, the round 1 correction reached
+the article but not source-log S35); R2-B07 EVID-04 (should-fix, "整个东亚高山
+植物区系" is wider than the cited study's flora); R2-B08 EVID-07 (optional, the
+fog-drip measurement limitation does not reach the reader).
+
+Checks that came back sound: every figure in the Dai and Shi paragraphs; all
+Zhu & Yan percentages and similarity coefficients plus the preprint marking;
+Cai et al. on both Oreocharis species and the "at least 30 new taxa" scope; the
+Chen et al. phenology comparison and the 1–2 day winged-adult figure; the
+Yuanjiang site, species, drought and leaf-habit convergence figures; image
+attribution under COMPLIANCE §3–4; AI disclosure under §7.
+
+### Arbiter — round 2
+
+**Terminal verdict: ship-with-notes.**
+
+Admitted: all thirteen, at the severities filed. Dismissed: none — each cites a
+named rule, quotes its span, proposes no replacement prose, and rests on no §7
+exclusion.
+
+On severity, recorded verbatim in substance: R2-B03, B04, B05 and B07 are
+EVID-04 citation-support findings, a category §7.2 would permit at must-fix from
+round 2 onward; the substance reviewer, having that option, graded each
+should-fix on damage per style-rules §1, and the arbiter declined to override a
+proportionality call the freeze rule exists to allow, since elevating them would
+reopen review rather than close it.
+
+Decisions: R1-B01, R1-B02 and R1-B08 confirmed cleared and their spans stay
+closed. §7.5 does not bar R2-B01, S01 or S02: they sit at paragraphs earlier
+findings touched but attack a different defect than the one closed there. No
+ping-pong — no span has been changed, reverted and challenged a third time. No
+conflict between the two reports. No escalation: no suspected fabricated source,
+no rights or privacy question, no unsettled factual dispute.
+
+Required before the pull request: R2-S01, S02, S03, S04, B01, B02, B03, B04,
+B05, B06, B07 — each a clause rewrite, a citation swap, a metadata edit or a
+source-log correction, all bearing on citation accuracy or on the legibility of
+the article's structure.
+
+### Author revision — round 2
+
+| Finding | Disposition | What changed |
+| --- | --- | --- |
+| R2-S01 | fixed | The stage direction is replaced by a stated relation between §04 and §05: one name hiding several species, one elevation hiding several environments. |
+| R2-S02 | fixed | The 2019 drought is introduced once, background before finding. |
+| R2-S03 | fixed | 「有意思的是」 deleted. |
+| R2-S04 | fixed | Head description now reads 松口蘑, and was widened to name the dry-hot valley and karst sections. |
+| R2-B01 | fixed | The identification method — 21 patient-recalled, 60 matched by staff from photographs, no specimen or DNA — now sits beside the 81 cases, and in source-log S36. |
+| R2-B02 | fixed | The conclusion now says the epidemiology pointed to the mushroom, not that it caused the deaths. |
+| R2-B03 | fixed | The light/litter/humidity mechanism is gone; [19] now carries only the census, and the scale comparison is visibly the article's own. |
+| R2-B04 | fixed | The transclusion note is attached to 125/97 alone, with both figures marked as background rather than this study's census. |
+| R2-B05 | fixed | The market-naming claim is removed from §03; it belongs to §04, where [14] supports it. |
+| R2-B06 | fixed | source-log S35 evidence and limits rows now separate the 1961–2021 normals from the 2012–2021 evaporation record. |
+| R2-B07 | fixed | Scope narrowed to the source's own, in the article and in source-log S4. |
+| R2-S05 | **carried** | Known limitation: the IUCN provisional status in §06 states its reservation twice. Optional; left as a documented rough edge. |
+| R2-B08 | **carried** | Known limitation: §07 gives the fog figure's site-and-duration limit but not the forest-floor measurement limit recorded in source-log S32. |
+
+One em dash introduced by these fixes was converted to a colon, holding the body
+at five.
+
+## Cycle result
+
+| Field | Value |
+| --- | --- |
+| Rounds completed | 2 of 3 |
+| Terminal verdict | **ship-with-notes** |
+| Known limitations | R1-B09 (the denominator of 54.3% is not stated, because Li et al. 2024 could not be obtained); R2-S05 (doubled hedge on the IUCN provisional status); R2-B08 (the fog figure's measurement limitation does not reach the reader) |
+| Open must-fix findings | none |
