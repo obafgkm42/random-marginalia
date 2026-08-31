@@ -1,4 +1,4 @@
-# Source log — 從田裡到行情：2026 年氣候怎樣影響六種主要作物與農產品 ETF
+# Source log — 極端氣候如何傳導至收成與糧價：六種作物的歷史案例、2026 狀況與 ETF
 
 Access date for every source: **2026-08-31**. No third-party image, chart, table or long quotation is reproduced. The article paraphrases facts and presents original tables assembled from the sources below.
 
@@ -22,7 +22,7 @@ Access date for every source: **2026-08-31**. No third-party image, chart, table
 
 - **Source:** USDA World Agricultural Outlook Board, *World Agricultural Supply and Demand Estimates 674*, 2026-08-12, <https://www.usda.gov/oce/commodity/wasde/wasde0826.pdf>
 - **Evidence used:** 2026/27 wheat, corn, rice, soybean, meal and oil production, use, yield, price and stock forecasts; EU heat and dryness; Black Sea logistics.
-- **Use:** Paraphrase and selected figures in original tables.
+- **Use:** Paraphrase and selected figures in original tables; release timing also used in an original schedule diagram.
 - **Rights:** U.S. federal government source; no report table reproduced.
 - **Limits:** Forecasts are revised monthly; marketing years and units differ by commodity and country.
 
@@ -30,7 +30,7 @@ Access date for every source: **2026-08-31**. No third-party image, chart, table
 
 - **Source:** FAO, *Cereal production in 2026 to ease from record, with El Niño adding some uncertainty*, 2026-07-03, <https://www.fao.org/worldfoodsituation/csdb>
 - **Evidence used:** World cereal, wheat and rice production; stocks; stock-to-use ratio; Australian wheat and global maize conditions.
-- **Use:** Paraphrase and selected figures.
+- **Use:** Paraphrase and selected figures; release timing also used in an original schedule diagram.
 - **Rights:** No licence relied on; facts only.
 - **Limits:** Published before the late-August Indian monsoon and Chinese crop reports; 2026/27 figures remain forecasts.
 
@@ -78,7 +78,7 @@ Access date for every source: **2026-08-31**. No third-party image, chart, table
 
 - **Source:** Mei Mei Chu, Reuters, *Malaysia's SD Guthrie sees El Niño impacting 2027–28 palm oil output*, 2026-08-11, <https://www.reuters.com/business/retail-consumer/malaysias-sd-guthrie-sees-el-nio-impacting-2027-28-palm-oil-output-2026-08-11/>
 - **Evidence used:** Company estimate of a 12–16 month production lag and no material 2026 output impact.
-- **Use:** Independent paraphrase.
+- **Use:** Independent paraphrase; the stated 2027–2028 lag is also drawn as one bar in an original schedule diagram.
 - **Rights:** Reuters copyright; no quotation or image.
 - **Limits:** Company-specific outlook and commercial interest; it does not represent all Malaysian or Indonesian plantations.
 
@@ -87,9 +87,9 @@ Access date for every source: **2026-08-31**. No third-party image, chart, table
 - **Sources:** Teucrium official pages for [WEAT](https://teucrium.com/weat), [CORN](https://teucrium.com/corn), [SOYB](https://teucrium.com/soyb), [TAGS](https://teucrium.com/tags) and [TILL](https://teucrium.com/till); Invesco official pages for [DBA](https://www.invesco.com/us/en/financial-products/etfs/invesco-db-agriculture-fund.html) and [PDBA](https://www.invesco.com/us/en/financial-products/etfs/invesco-agriculture-commodity-strategy-no-k-1-etf.html).
 - **Access/version:** Pages current on access, 2026-08-31.
 - **Evidence used:** Underlying futures, contract diversification, weighting, rebalancing and U.S. tax-reporting structure.
-- **Use:** Paraphrase and an original comparison table.
+- **Use:** Paraphrase and original comparison table; the described contract allocation and roll are also drawn as an original curve schematic.
 - **Rights:** Issuer copyright; no prospectus text, logo or issuer table copied.
-- **Limits:** Issuer descriptions are commercial and fund structures can change. The article tells readers to consult current prospectuses and does not assess suitability.
+- **Limits:** Issuer descriptions are commercial and fund structures can change. The article states that current prospectuses govern the terms and does not assess suitability.
 
 ## S16 — ETF historical prices and calculation
 
@@ -129,7 +129,7 @@ Access date for every source: **2026-08-31**. No third-party image, chart, table
 
 - **Source:** USDA Foreign Agricultural Service, *Sugar: World Markets and Trade*, 2026-05-02, <https://apps.fas.usda.gov/psdonline/circulars/sugar.pdf>
 - **Evidence used:** 2026/27 world production; Brazil sugar/ethanol split; India recovery; Thailand and EU reductions.
-- **Use:** Paraphrase and selected figures.
+- **Use:** Paraphrase and selected figures; the Brazilian allocation interval in the original schedule diagram.
 - **Rights:** U.S. federal government source; no report chart or table reproduced.
 - **Limits:** May baseline predates the full 2026 Indian monsoon deficit; country estimates mix weather, acreage, prices and policy.
 
@@ -145,9 +145,121 @@ Access date for every source: **2026-08-31**. No third-party image, chart, table
 
 - **Source:** Teucrium, *CANE: ETF Providing Price Exposure to ICE No. 11 Sugar Futures*, page current on access, <https://teucrium.com/cane>
 - **Evidence used:** ICE No. 11 futures exposure, multiple delivery months, non-leveraged structure and K-1 treatment.
-- **Use:** Paraphrase and original comparison table.
+- **Use:** Paraphrase and original comparison table; the described roll process is also drawn as an original curve schematic.
 - **Rights:** Issuer copyright; no prospectus text, logo or table copied.
 - **Limits:** Issuer description is commercial and can change; retail white sugar and CANE are not equivalent prices.
+
+## S23 — NOAA ENSO mechanism and definitions
+
+- **Sources:** NOAA Climate Prediction Center, *El Niño Conditions*, *ENSO Alert System* and *Climate Glossary*, pages current on access, <https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensocycle/enso_schem.shtml>, <https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/enso-alert-readme.shtml>, <https://www.cpc.ncep.noaa.gov/products/outreach/glossary.shtml>
+- **Evidence used:** Walker circulation, trade-wind and thermocline changes, Niño-3.4 coordinates, climate-normal concept, the requirement for coupled oceanic and atmospheric conditions, and the origin of the name El Niño (Spanish for "the boy", referring to the Christ child; the warm water appears off Peru around Christmas).
+- **Use:** Independent paraphrase; an original cross-section schematic drawn from the textual description of trade winds, thermocline, upwelling and the Walker circulation on these pages. The two-panel normal/El Niño east-west composition, its geometry, labels and colours are the author's own; the only figure on the cited schematic page is a December–February conditions GIF, which was not opened, traced, adapted, embedded or hotlinked. Elements common to any ENSO diagram — trade winds, thermocline slope, upwelling, convection — are used as physical facts under COMPLIANCE.md §2, not as the source's expression.
+- **Rights:** U.S. federal government sources; no diagram or page text reproduced.
+- **Limits:** Outreach pages describe the general mechanism; the current 2026 state and probabilities come from S1.
+
+## S24 — FAO crop water response
+
+- **Sources:** FAO, *The influence of water shortages on yields* and *Crop yield response to water*, <https://www.fao.org/4/t7202e/t7202e05.htm>, <https://www.fao.org/4/i2800e/i2800e.pdf>
+- **Evidence used:** Water-sensitive stages for wheat, maize, soybean, rice, sugarcane and sugar beet; the crop growth-stage concept itself; distinctions between crop stages and water-deficit responses.
+- **Use:** Independent paraphrase and an original cross-crop comparison table.
+- **Rights:** No licence relied on; facts and general agronomic concepts only. No FAO table or diagram reproduced.
+- **Limits:** Global agronomy guidance uses broad crop categories; cultivar, soil, irrigation and local climate modify responses.
+
+## S25 — Nonlinear heat response of U.S. crops
+
+- **Source:** Wolfram Schlenker and Michael J. Roberts, *Nonlinear temperature effects indicate severe damages to U.S. crop yields under climate change*, PNAS 106(37), 2009, <https://doi.org/10.1073/pnas.0906865106>
+- **Evidence used:** County-level 1950–2005 dataset and estimated temperature breakpoints near 29°C for corn and 30°C for soybeans.
+- **Use:** Independent paraphrase of methods and historical association.
+- **Rights:** No article text, figure or table reproduced.
+- **Limits:** Statistical relationship for U.S. counties; the thresholds are not universal physiological failure temperatures and do not identify one event's causal loss.
+
+## S26 — 2012 U.S. corn and soybean drought
+
+- **Source:** USDA National Agricultural Statistics Service, *Crop Production Down in 2012 Due to Drought*, 2013-01-11, <https://www.nass.usda.gov/Newsroom/archive/2013/01_11_2013.php>
+- **Evidence used:** Corn and soybean production, yield and crop-condition figures following the 2012 drought.
+- **Use:** Paraphrase and selected figures in an original historical table.
+- **Rights:** U.S. federal government source; no source table reproduced.
+- **Limits:** Year-over-year totals combine weather, area and management; the release does not allocate every change to drought.
+
+## S27 — 2012 weather, corn yield and price transmission
+
+- **Sources:** USDA Economic Research Service, *Drought and heat in 2012 lowered U.S. corn yields by more than 40 bushels per acre*, 2013-08-15, <https://www.ers.usda.gov/data-products/charts-of-note/76883>; *U.S. corn prices maintain record highs as stocks remain tight*, 2013-03-14, <https://www.ers.usda.gov/data-products/charts-of-note/76556>
+- **Evidence used:** June and July weather estimates, ending stocks and 2012/13 season-average farm-price forecast.
+- **Use:** Paraphrase and selected figures.
+- **Rights:** U.S. federal government sources; source charts are not copied.
+- **Limits:** Model-based decomposition and contemporaneous forecast; strong demand and already-declining stocks also contributed to prices.
+
+## S28 — 2010 wheat forecast revision
+
+- **Source:** FAO, *FAO cuts wheat production forecast but considers supplies adequate*, 2010-08-04, <https://www.fao.org/newsroom/detail/FAO-cuts-wheat-production-forecast-but-considers-supplies-adequate/en>
+- **Evidence used:** Reduction of the 2010 global wheat forecast from 676 million to 651 million tonnes after drought in Russia and neighbouring producers.
+- **Use:** Paraphrase and selected figures.
+- **Rights:** No licence relied on; facts only.
+- **Limits:** Contemporaneous forecast released before the crop year was complete.
+
+## S29 — 2010 Russian harvest, export ban and price response
+
+- **Sources:** World Bank, *Global Monitoring Report 2012*, Box 4.1, <https://documents1.worldbank.org/curated/en/212781468176337181/pdf/681710PUB0EPI00SE0ONLY090Box367902B.pdf>; World Bank, *External Environment for Developing Countries*, 2010-09-23, <https://documents1.worldbank.org/curated/en/936201468161351103/pdf/586310NEWS0STR10BOX353808B01PUBLIC1.pdf>
+- **Evidence used:** Official estimate of the Russian grain-harvest decline, export-ban dates, and Chicago nearby wheat-futures change between June 29 and August 4.
+- **Use:** Paraphrase and selected figures.
+- **Rights:** No report chart or table reproduced.
+- **Limits:** Price move combined weather news, policy expectations and wider market conditions; it is not a causal decomposition.
+
+## S30 — 2015 Thailand rice drought
+
+- **Sources:** FAO Global Information and Early Warning System, *Thailand Country Brief*, 2016-05-18, <https://www.fao.org/giews/countrybrief/country/THA/pdf_archive/THA_Archive.pdf>; USDA FAS, *Rice Market and Policy Changes Over the Past Decade*, 2017-01-18, <https://apps.fas.usda.gov/newgainapi/api/report/downloadreportbyfilename?filename=Rice+Market+and+Policy+Changes+Over+the+Past+Decade_Bangkok_Thailand_1-18-2017.pdf>
+- **Evidence used:** Secondary-season output, five-year comparison, reservoir constraints, planting restrictions and 2015/16 production level.
+- **Use:** Paraphrase and selected figures.
+- **Rights:** No third-party visual or table reproduced.
+- **Limits:** Production decline combined lower planted area and yield; policy restrictions mediated the drought response.
+
+## S31 — 2014–16 Malaysia palm-oil flood and drought sequence
+
+- **Source:** USDA FAS, *Malaysia: El Niño Takes a Bite Out of 2015/16 Palm Oil Production*, 2016-08-23, <https://ipad.fas.usda.gov/highlights/2016/08/malaysia/index.htm>
+- **Evidence used:** 2014/15 flood disruption, 2015–16 moisture deficits, regional production losses and annual output estimate.
+- **Use:** Paraphrase and selected figures.
+- **Rights:** U.S. federal government source; maps, charts and photographs excluded.
+- **Limits:** USDA estimate at the time; labour and crop age also affect harvested output.
+
+## S32 — 2016/17 Thailand sugar drought
+
+- **Source:** USDA FAS, *Thailand Sugar Semi-annual*, 2016-09-30, <https://apps.fas.usda.gov/newgainapi/api/report/downloadreportbyfilename?filename=Sugar+Semi-annual_Bangkok_Thailand_9-30-2016.pdf>
+- **Evidence used:** 9.3-million-tonne sugar forecast, year comparison, drought attribution and export outlook.
+- **Use:** Paraphrase and selected figures.
+- **Rights:** U.S. federal government source; no report table copied.
+- **Limits:** Post estimate and forecast; final output and prices also depended on recovery, stocks and other exporters.
+
+## S33 — 2022 Pakistan rice floods
+
+- **Source:** USDA FAS, *Pakistan Rice: Production Reduced by Flooding*, October 2022 in *World Agricultural Production*, <https://apps.fas.usda.gov/PSDOnline/Circulars/2022/10/production.pdf>
+- **Evidence used:** Satellite-observed flood overlap, harvested area, yield and 2022/23 milled-rice production revision.
+- **Use:** Paraphrase and selected figures.
+- **Rights:** U.S. federal government source; source map and chart excluded.
+- **Limits:** Immediate post-flood forecast, later subject to revision; provincial impacts differed.
+
+## S34 — Oil-palm climate lags
+
+- **Source:** Susannah Fleiss, Colin J. McClean, Henry King and Jane K. Hill, *Limited impacts of climatic conditions on commercial oil palm yields in Malaysian plantations*, CABI Agriculture and Bioscience 3, 2022, <https://doi.org/10.1186/s43170-022-00127-1>
+- **Evidence used:** Twelve plantations belonging to one company; weak associations at sex determination, inflorescence development and abortion stages roughly 9–28 months before harvest; climate predictors explained less than 1 percent of total yield variation.
+- **Use:** Independent paraphrase.
+- **Rights:** No figure, table or article text reproduced.
+- **Limits:** Commercial Malaysian plantation dataset; climate explained only part of yield variation and management factors remain substantial.
+
+## S35 — Global disaster effects on crop production
+
+- **Source:** Corey Lesk, Pedram Rowhani and Navin Ramankutty, *Influence of extreme weather disasters on global crop production*, Nature 529, 2016, <https://doi.org/10.1038/nature16467>
+- **Evidence used:** Approximately 2,800 disasters from 1964–2007 and average national cereal-production effects of drought and extreme heat.
+- **Use:** Paraphrase of methods and headline estimates.
+- **Rights:** No article text, figure, data table or supplementary dataset reproduced.
+- **Limits:** Country-year event analysis and cereals only; averages do not predict an individual crop or disaster.
+
+## S36 — Primary 2026 U.S. winter-wheat reports
+
+- **Sources:** USDA National Agricultural Statistics Service, *Crop Production*, 2026-06-11, <https://www.nass.usda.gov/Publications/Todays_Reports/reports/crop0626.pdf>; USDA Economic Research Service, *Wheat Outlook*, 2026-06-15, <https://www.ers.usda.gov/media/29224/whs-26f.pdf>
+- **Evidence used:** Hard-red-winter and all-winter-wheat production forecasts, year comparison, June 7 good-to-excellent rating and the historical rating frame.
+- **Use:** Paraphrase and selected figures.
+- **Rights:** U.S. federal government sources; no report table or chart reproduced.
+- **Limits:** June survey-based production forecast and crop-condition snapshot; later monthly reports supersede parts of the estimate.
 
 ## Rights and release check
 

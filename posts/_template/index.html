@@ -89,6 +89,36 @@
   </table>
   </div>
 
+  <!-- 原創示意圖：只放自行繪製的圖，不得重畫他人圖表；圖說要寫依據與比例限制 -->
+  <figure class="diagram" id="fig-demo">
+    <div class="canvas">
+    <svg viewBox="0 0 700 120" role="img" aria-labelledby="fig-demo-t">
+      <title id="fig-demo-t">三階段流程示意</title>
+      <style>
+        #fig-demo text{font-family:var(--f-body);fill:var(--muted);font-size:11px}
+        #fig-demo .box{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+        #fig-demo .lbl{fill:var(--ink);font-size:12px}
+        #fig-demo .link{fill:none;stroke:var(--ink-2);stroke-width:1.4;marker-end:url(#demo-arrow)}
+      </style>
+      <defs>
+        <marker id="demo-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,1 L9,5 L0,9 z" fill="var(--ink-2)"/>
+        </marker>
+      </defs>
+      <rect class="box" x="20" y="36" width="170" height="44" rx="3"/>
+      <text class="lbl" x="105" y="63" text-anchor="middle">階段一</text>
+      <path class="link" d="M196,58 H258"/>
+      <rect class="box" x="265" y="36" width="170" height="44" rx="3"/>
+      <text class="lbl" x="350" y="63" text-anchor="middle">階段二</text>
+      <path class="link" d="M441,58 H503"/>
+      <rect class="box" x="510" y="36" width="170" height="44" rx="3"/>
+      <text class="lbl" x="595" y="63" text-anchor="middle">階段三</text>
+      <text x="20" y="104">座標與比例為示意，不代表實際數值。</text>
+    </svg>
+    </div>
+    <figcaption>圖說：說明這張圖依據哪些來源繪製、哪些部分是示意而非按比例，並附來源編號。</figcaption>
+  </figure>
+
   <!-- 流程階梯：有先後順序的關卡／步驟才用 -->
   <div class="ladder">
     <div class="rung"><span class="g">GATE 0</span><span class="t">階段名稱 <em>細項 · 細項 · 細項</em></span></div>

@@ -7,7 +7,8 @@ Copy-and-paste role prompts implementing [review-spec.md](review-spec.md). They 
 1. Start each role in a **fresh context**. A reviewer that has watched the article being written is not a reviewer.
 2. Give the two reviewers the same inputs — the article, `docs/style-rules.md`, `COMPLIANCE.md` — and nothing else. In particular, not the author's reasoning and not the other reviewer's findings.
 3. Run the two reviewers before the arbiter. Give the arbiter both reports, the round number and the previous rounds' log.
-4. Paste each report into `review-log.md` verbatim before the author revises. The log is written as the round happens, not reconstructed afterwards.
+4. Keep the substance prompt's verification limits when adapting it. A reviewer with web access and no fetch budget will spend a round retrying one host that blocks bots, and return nothing.
+5. Paste each report into `review-log.md` verbatim before the author revises. The log is written as the round happens, not reconstructed afterwards.
 
 The author agent may run all of this, provided each role runs in its own context and the outputs are recorded unedited.
 
@@ -81,7 +82,8 @@ the round number.
 
 Look for, in this order of priority:
 1. Claims the sources do not support, including a real source cited for something
-   it does not say, and any citation you cannot verify.
+   it does not say, and any citation that fails to check out against the source
+   itself.
 2. Figures missing their population, denominator, period or units, and figures
    that do not match the cited source.
 3. Inferences that do not follow: a conclusion wider than the evidence, an
@@ -95,14 +97,39 @@ Rules of engagement:
   most 25 words.
 - Say what is wrong and what evidence is missing. Do not write replacement prose
   and do not go looking for a better argument on the article's behalf.
-- Check the article against the sources it cites. Where you cannot verify a
-  source, report that as a finding rather than assuming it is sound.
+- Check the article against the sources it cites. Where a source is reachable and
+  does not support the claim attached to it, that is a finding. Where you cannot
+  reach it at all, see the verification limits below.
 - Do not raise style, tone or wording issues.
 - From round 2 onward you may raise a new must-fix finding only for a factual
   error, a fabricated or unverifiable citation, a citation that does not support
   its claim, or a rights, privacy or confidentiality problem. Everything else is
   should-fix at most.
 - Do not repeat a finding the arbiter has already dismissed or closed.
+
+Verification limits, if you can browse:
+- Budget at most six web calls for the whole review. Never retry a failed fetch
+  and never request the same URL twice. A reviewer stalled on one host has spent
+  the round's time without producing a finding.
+- Do not fetch hosts that block automated access or sit behind a paywall, among
+  them pubmed.ncbi.nlm.nih.gov, sciencedirect.com, link.springer.com and
+  onlinelibrary.wiley.com. A blocked or empty response tells you nothing about
+  the source and is not a finding.
+- To check a DOI's authors, title, year and journal, request
+  https://api.crossref.org/works/<DOI>. It returns JSON, does not block, and
+  settles attribution questions without the full text. Prefer it over a
+  publisher page whenever the question is who wrote what, and when.
+- Unreachable is not fabricated. Where a source cannot be reached from your
+  environment, raise no finding against it. State once, at the end of the report
+  and outside the findings list, which sources you could not reach and what that
+  leaves unverified. Reserve an unverifiable-citation finding for a source that
+  you did reach and that does not exist, does not match its description, or does
+  not support its claim.
+- Spend the remaining effort on what needs no network: the article against its
+  source log, units, denominators, periods and marketing years, arithmetic and
+  internal consistency across sections and tables, the separation of reported
+  findings from the article's own interpretation, and the COMPLIANCE.md
+  checklist.
 
 Output: the same six-field format as the style reviewer, with IDs R<round>-B<nn>.
 
@@ -158,6 +185,16 @@ Then issue exactly one verdict:
                       sources at hand, or must-fix findings surviving round 3.
 - withdraw          — the article's central claim is not supported by any source
                       it can reach.
+
+Do not browse to settle a finding. Decide on the record you were given: the two
+reports, the article, its source log, the earlier rounds' log and the rules. A
+factual dispute you cannot settle from the sources at hand is an escalation under
+review-spec.md section 7.6, or a downgrade — it is not a research task, and an
+arbiter that goes looking for evidence the reviewers did not produce has become a
+third reviewer. One narrow exception: at most two calls to
+https://api.crossref.org/works/<DOI> when a DOI's authorship, year or journal is
+genuinely in dispute between the two reports. Never fetch a host that blocks
+automated access; a blocked or empty response is evidence of nothing.
 
 The budget is three rounds and it is hard. At the end of round 3 you must issue a
 terminal verdict. A fourth round does not exist; if blockers survive, the verdict
