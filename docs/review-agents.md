@@ -50,6 +50,9 @@ Rules of engagement:
 - From round 2 onward you may not raise a new must-fix finding. Report late
   discoveries as should-fix. (Exemptions in review-spec.md section 7.2 do not
   apply to style findings.)
+- Read the last sentence of every paragraph as a list before you report.
+  Repetition of position or shape is a pattern under TELL-S05 even when each
+  instance is defensible alone.
 - Do not repeat a finding the arbiter has already dismissed or closed.
 
 Output, in this format, most serious first, and nothing else:
