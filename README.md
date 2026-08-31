@@ -11,6 +11,7 @@ Each article starts with a focused question, reviews relevant published sources 
 
 | Date | Article | Formats |
 | --- | --- | --- |
+| 2026.08 | 從田裡到行情：2026 年氣候怎樣影響六種主要作物與農產品 ETF · *How 2026 climate is affecting six major crops and agricultural ETFs* | [Web](posts/2026-08-climate-crops-etfs/) |
 | 2026.08 | 云南为什么会长出这些诡异又美丽的植物与菌子？ · *Why Yunnan grows such strange and beautiful plants and fungi* | [Web](posts/2026-08-yunnan-strange-plants/) |
 | 2026.08 | AI 寫的程式碼，工程師到底怎麼驗收？ · *How developers actually verify AI-generated code* | [Web](posts/2026-08-ai-coding-quality-assurance/) · [PDF](posts/2026-08-ai-coding-quality-assurance/ai-coding-quality-assurance.pdf) |
 
